@@ -1,0 +1,63 @@
+//
+//  TeamDataModels.swift
+//  Scores
+//
+//  Created by Rastaar Haghi on 7/31/20.
+//  Copyright © 2020 Rastaar Haghi. All rights reserved.
+//
+
+import UIKit
+
+struct BasicTeamInfo {
+    let teamCrest: UIImage
+    let teamName: String
+}
+
+struct TeamRecord: Codable {
+    let team: String
+    let played: Int
+    let win: Int
+    let draw: Int
+    let loss: Int
+    let goalsFor: Int
+    let goalsAgainst: Int
+    let points: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case team = "team"
+        case played = "played"
+        case win = "win"
+        case draw = "draw"
+        case loss = "loss"
+        case goalsFor = "goalsFor"
+        case goalsAgainst = "goalsAgainst"
+        case points = "points"
+    }
+}
+
+var teamColors: [String : [String]] = [
+    "Bournemouth" : ["E62333", "000000"],
+    "Arsenal" : ["EF2D56", "023474", "9C824A"],
+    "Brighton" : ["0055a9", "F8BC1B"],
+    "Burnley" : ["8CCCE5", "53162F", "F9EC34"],
+    "Chelsea" : ["034694", "DBA111", "ED1C24"],
+    "Crystal Palace" : ["1B458F", "C4122E", "A7A5A6"],
+    "Everton" : ["274488"],
+    "Huddersfield Town" : ["0073d2"],
+    "Leicester" : ["034694", "0053A0"],
+    "Liverpool" : ["00A398", "D00027", "FEF667"],
+    "Manchester City" : ["98c5e9", "00285e", "f4bc46"],
+    "Manchester United" : ["EF2D56", "FFE500", "000000"],
+    "Newcastle United" : ["241f20", "00B8F4", "c3a572"],
+    "Southampton" : ["ED1A3B", "211E1F", "FFC20E"],
+    "Stoke City" : ["E03A3E", "1B449C"],
+    "Swansea City" : ["E03A3E", "1B449C"],
+    "Tottenham" : ["001C58"],
+    "Watford" : ["FFB86F", "ED2127", "000000"],
+    "West Bromwich Albion" : ["091453"],
+    "West Ham" : ["60223B", "F7C240", "5299C6"],
+    "Wolverhampton Wanderers" : ["2A2B2E"],
+    "Aston Villa" : ["AB2346"],
+    "Norwich" : ["0CF574"],
+    "Sheffield United" : ["EF2D56"]
+]
