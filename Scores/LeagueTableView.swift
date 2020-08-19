@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import SkeletonView
 
 class LeagueTableView: UIViewController {
 
@@ -64,16 +65,10 @@ extension LeagueTableView: UITableViewDelegate, UITableViewDataSource {
 
 extension LeagueTableView {
     func fetchTeamData() -> [TeamRecord] {
-        let headers = [
-            "x-rapidapi-host": "heisenbug-premier-league-live-scores-v1.p.rapidapi.com",
-            "x-rapidapi-key": "2a743ed42dmshab0f2395283c970p139087jsn76d4a045b547"
-        ]
-
-        let request = NSMutableURLRequest(url: NSURL(string: "https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague/table")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "http://hrastaar.com/api/premierleague/19-20/standings")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
         request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
         
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
@@ -88,9 +83,9 @@ extension LeagueTableView {
                             for team in teams {
                                 let teamRecord = TeamRecord(team: team["team"].string!, played: team["played"].int!, win: team["win"].int!, draw: team["draw"].int!, loss: team["loss"].int!, goalsFor: team["goalsFor"].int!, goalsAgainst: team["goalsAgainst"].int!, points: team["points"].int!)
                                 self.teamRecords.append(teamRecord)
-                            }
-                            DispatchQueue.main.async {
-                                self.tableView.reloadData()
+                                DispatchQueue.main.async {
+                                    self.tableView.reloadData()
+                                }
                             }
                         }
                     } catch {

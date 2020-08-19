@@ -13,18 +13,18 @@ import SwiftyJSON
 class MatchCell: UITableViewCell {
 
     var team1ImageView = UIImageView()
-    var team2ImageView = UIImageView()
-
     var team1TitleLabel = UILabel()
-    var team2TitleLabel = UILabel()
-    
     var team1Score = UILabel()
+
+    var team2ImageView = UIImageView()
+    var team2TitleLabel = UILabel()
     var team2Score = UILabel()
     
     var dateLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         addSubview(team1ImageView)
         addSubview(team2ImageView)
         
@@ -35,7 +35,11 @@ class MatchCell: UITableViewCell {
         addSubview(team2Score)
         addSubview(dateLabel)
         
-        configureImageView()
+        // configure images
+        configureImageView(imageView: team1ImageView)
+        configureImageView(imageView: team2ImageView)
+        
+        // configure labels
         configureTitleLabel(label: team1TitleLabel)
         configureTitleLabel(label: team2TitleLabel)
         configureTitleLabel(label: team1Score)
@@ -83,12 +87,9 @@ class MatchCell: UITableViewCell {
         dateLabel.font = UIFont.regularFont(size: 10)
     }
     
-    func configureImageView() {
-        team1ImageView.layer.cornerRadius = 10
-        team1ImageView.clipsToBounds = true
-        
-        team2ImageView.layer.cornerRadius = 10
-        team2ImageView.clipsToBounds = true
+    func configureImageView(imageView: UIImageView) {
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
     }
     
     func configureTitleLabel(label: UILabel) {
