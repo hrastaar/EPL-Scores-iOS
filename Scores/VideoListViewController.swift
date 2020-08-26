@@ -8,9 +8,8 @@
 
 import UIKit
 import SwiftyJSON
-import SkeletonView
 
-class LeagueTableViewController: UIViewController {
+class LeagueTableView: UIViewController {
 
     var tableView = UITableView()
     var teamRecords: [TeamRecord] = []
@@ -41,8 +40,9 @@ class LeagueTableViewController: UIViewController {
 
 }
 
-extension LeagueTableViewController: UITableViewDelegate, UITableViewDataSource {
+extension LeagueTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(teamRecords.count)
         return teamRecords.count
     }
     
@@ -54,38 +54,21 @@ extension LeagueTableViewController: UITableViewDelegate, UITableViewDataSource 
         return cell
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let teamMatchBarItem = UITabBarItem()
-        teamMatchBarItem.title = "Scores"
-        
-        let teamMatchesVC = TeamMatchesViewController()
-        teamMatchesVC.teamInfo = teamRecords[indexPath.row]
-        teamMatchesVC.title = teamRecords[indexPath.row].team
-        teamMatchesVC.tabBarItem = teamMatchBarItem
-        
-        let teamNewsBarItem = UITabBarItem()
-        teamNewsBarItem.title = "News"
-        
-        let teamNewsVC = TeamNewsViewController()
-        teamNewsVC.teamInfo = teamRecords[indexPath.row]
-        teamNewsVC.title = teamRecords[indexPath.row].team
-        teamNewsVC.tabBarItem = teamNewsBarItem
-        
-        let teamTabBarViewController = UITabBarController()
-        teamTabBarViewController.viewControllers = [teamMatchesVC, teamNewsVC]
-        
-        
-        show(teamTabBarViewController, sender: self)
-    }
     
 }
 
-extension LeagueTableViewController {
+extension LeagueTableView {
     func fetchTeamData() -> [TeamRecord] {
-        let request = NSMutableURLRequest(url: NSURL(string: "http://hrastaar.com/api/premierleague/19-20/standings")! as URL,
+        let headers = [
+            "x-rapidapi-host": "heisenbug-premier-league-live-scores-v1.p.rapidapi.com",
+            "x-rapidapi-key": "2a743ed42dmshab0f2395283c970p139087jsn76d4a045b547"
+        ]
+
+        let request = NSMutableURLRequest(url: NSURL(string: "https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague/table")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
         request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
         
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
@@ -100,9 +83,10 @@ extension LeagueTableViewController {
                             for team in teams {
                                 let teamRecord = TeamRecord(team: team["team"].string!, played: team["played"].int!, win: team["win"].int!, draw: team["draw"].int!, loss: team["loss"].int!, goalsFor: team["goalsFor"].int!, goalsAgainst: team["goalsAgainst"].int!, points: team["points"].int!)
                                 self.teamRecords.append(teamRecord)
-                                DispatchQueue.main.async {
-                                    self.tableView.reloadData()
-                                }
+                            }
+                            print(self.teamRecords)
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
                             }
                         }
                     } catch {
@@ -117,8 +101,3 @@ extension LeagueTableViewController {
     }
 }
 
-extension UIFont {
-    class func regularFont( size:CGFloat ) -> UIFont{
-        return  UIFont(name: "D-DIN", size: size)!
-    }
-}
