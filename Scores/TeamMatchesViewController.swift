@@ -9,9 +9,8 @@
 import UIKit
 import Hex
 import SwiftyJSON
-import SafariServices
 
-class TeamMatchesViewController: UIViewController, SFSafariViewControllerDelegate {
+class TeamMatchesViewController: UIViewController {
     
     var teamInfo: TeamRecord?
     var tableView = UITableView()
@@ -27,6 +26,7 @@ class TeamMatchesViewController: UIViewController, SFSafariViewControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = teamInfo!.team
+        self.parent?.title = teamInfo!.team
         if teamInfo!.team == "Wolverhampton Wanderers" {
             self.navigationItem.title = "Wolves"
         }
@@ -106,7 +106,6 @@ extension TeamMatchesViewController {
         let request = NSMutableURLRequest(url: NSURL(string: "http://hrastaar.com/api/premierleague/19-20/week/\(weekNumber)")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
-        print(request)
         request.httpMethod = "GET"
         
         let session = URLSession.shared

@@ -15,10 +15,7 @@ class TeamNewsViewController: UIViewController, SFSafariViewControllerDelegate {
     
     var teamInfo: TeamRecord?
     var tableView = UITableView()
-    var teamMatches: [JSON] = []
     var newsArticles: [News] = []
-    var pickerData: [String] = ["Matches Played", "Team News"]
-    var seasonMatchData: [MatchData] = []
     
     struct Cells {
         static let newsCell = "NewsCell"
@@ -95,7 +92,7 @@ extension TeamNewsViewController: UITableViewDelegate, UITableViewDataSource {
 extension TeamNewsViewController {
     func gatherTeamNews(teamName: String) {
         let API_KEY = "0472e96928694078ad0d3c39a540341f"
-        let newsURL =  "http://newsapi.org/v2/everything?q=\(teamName.replacingOccurrences(of: " ", with: "%20"))%20english&from=2020-08-18&sortBy=publishedAt&apiKey=" + API_KEY
+        let newsURL =  "http://newsapi.org/v2/everything?qInTitle=\(teamName.replacingOccurrences(of: " ", with: "%20"))&sortBy=popularity&apiKey=" + API_KEY
         print(newsURL)
         let url = URL(string: newsURL)
         let request = NSMutableURLRequest(url: url!,
@@ -112,10 +109,10 @@ extension TeamNewsViewController {
                 if let data = data {
                     do {
                         let jsonData = try JSON(data: data)
-                        print(jsonData)
                         if jsonData["status"].stringValue == "ok" {
-                            print("Status for news api was successfull")
+                            print("Successfully connected to News API")
                             if let articles = jsonData["articles"].array {
+                                var articleNumber: Int = 0
                                 for article in articles {
                                     var dateInfo = article["publishedAt"].stringValue
                                     dateInfo = String(dateInfo.split(separator: "T")[0])
@@ -124,11 +121,16 @@ extension TeamNewsViewController {
                                     DispatchQueue.main.async {
                                         self.tableView.reloadData()
                                     }
+                                    articleNumber += 1
+                                    // once we reach 15 articles, stop adding to table
+                                    if(articleNumber >= 15) {
+                                        break
+                                    }
                                 }
                             }
                         }
                     } catch {
-                        print("Caught an exception")
+                        print("Error occurred when fetching data from News API")
                     }
                     semaphore.signal()
                 }

@@ -8,7 +8,6 @@
 
 import UIKit
 import SwiftyJSON
-import SkeletonView
 
 class LeagueTableViewController: UIViewController {
 
