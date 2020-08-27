@@ -48,7 +48,7 @@ extension LeagueTableViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.teamCell) as! TeamCell
         let team = teamRecords[indexPath.row]
-        cell.set(teamInfo: team)
+        cell.set(teamInfo: team, position: indexPath.row + 1)
         
         return cell
     }
@@ -69,6 +69,12 @@ extension LeagueTableViewController: UITableViewDelegate, UITableViewDataSource 
         teamNewsVC.teamInfo = teamRecords[indexPath.row]
         teamNewsVC.title = teamRecords[indexPath.row].team
         teamNewsVC.tabBarItem = teamNewsBarItem
+        
+//        let userBarItem = UITabBarItem()
+//        userBarItem.title = "Create User"
+//
+//        let createUserVC = CreateUserViewController()
+//        createUserVC.tabBarItem = userBarItem
         
         let teamTabBarViewController = UITabBarController()
         teamTabBarViewController.viewControllers = [teamMatchesVC, teamNewsVC]

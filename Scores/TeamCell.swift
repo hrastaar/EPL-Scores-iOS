@@ -13,27 +13,35 @@ class TeamCell: UITableViewCell {
     var teamImageView = UIImageView()
     var teamTitleLabel = UILabel()
     var teamPointsLabel = UILabel()
+    var teamRankLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(teamImageView)
         addSubview(teamTitleLabel)
         addSubview(teamPointsLabel)
+        addSubview(teamRankLabel)
         configureImageView()
         configureTitleLabel()
         setImageConstraints()
         setTitleLabelConstraints()
         setPointsLabelConstraints()
+        setTeamRankLabelConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func set(teamInfo: TeamRecord) {
+    func set(teamInfo: TeamRecord, position: Int) {
         teamImageView.image = UIImage(named: "AssetBundle.bundle/" + teamInfo.team + ".png")
-        teamTitleLabel.text = teamInfo.team
-        teamPointsLabel.text = (teamInfo.points as NSNumber).stringValue
+        if teamInfo.team == "Wolverhampton Wanderers" {
+            teamTitleLabel.text = "Wolves"
+        } else {
+            teamTitleLabel.text = teamInfo.team
+        }
+        teamPointsLabel.text = String(teamInfo.points)
+        teamRankLabel.text = String(position)
     }
     
     func set(opponent: String) {
@@ -53,7 +61,7 @@ class TeamCell: UITableViewCell {
     func setImageConstraints() {
         teamImageView.translatesAutoresizingMaskIntoConstraints = false
         teamImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        teamImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
+        teamImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25).isActive = true
         teamImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
         teamImageView.widthAnchor.constraint(equalTo: teamImageView.heightAnchor, multiplier: 1).isActive = true
     }
@@ -73,4 +81,10 @@ class TeamCell: UITableViewCell {
         teamPointsLabel.font = UIFont.regularFont(size: 24)
     }
     
+    func setTeamRankLabelConstraints() {
+        teamRankLabel.translatesAutoresizingMaskIntoConstraints = false
+        teamRankLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 6).isActive = true
+        teamRankLabel.topAnchor.constraint(equalTo: topAnchor, constant: 6).isActive = true
+        teamRankLabel.font = UIFont.regularFont(size: 20)
+    }
 }

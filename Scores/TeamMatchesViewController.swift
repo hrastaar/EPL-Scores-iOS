@@ -34,7 +34,7 @@ class TeamMatchesViewController: UIViewController {
         if let currTeamColor = teamColors[teamInfo!.team] {
             view.tintColor = UIColor(hex: currTeamColor[0])
             tableView.separatorColor = UIColor(hex: currTeamColor[0])
-            navigationController?.navigationBar.tintColor = UIColor(hex: currTeamColor[0])
+            navigationController?.navigationBar.tintColor = .darkGray
         } else {
             view.tintColor = UIColor(hex: "2A2B2E")
             tableView.separatorColor = UIColor(hex: "2A2B2E")
