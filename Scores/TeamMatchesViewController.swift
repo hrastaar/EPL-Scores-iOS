@@ -79,15 +79,16 @@ extension TeamMatchesViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.matchCell) as! MatchCell
         let match = teamMatches[indexPath.row]
         cell.set(matchInfo: match)
+        cell.currTeam = teamInfo!.team
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let matchDetailsViewController = MatchDetailsViewController()
-        matchDetailsViewController.basicMatchInfo = teamMatches[indexPath.row]
-        matchDetailsViewController.updateUI()
-        show(matchDetailsViewController, sender: self)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let matchDetailsViewController = MatchDetailsViewController()
+//        matchDetailsViewController.basicMatchInfo = teamMatches[indexPath.row]
+//        matchDetailsViewController.updateUI()
+//        show(matchDetailsViewController, sender: self)
+//    }
     
 }
 

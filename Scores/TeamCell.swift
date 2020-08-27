@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SkeletonView
 
 class TeamCell: UITableViewCell {
 
@@ -25,10 +24,6 @@ class TeamCell: UITableViewCell {
         setImageConstraints()
         setTitleLabelConstraints()
         setPointsLabelConstraints()
-        
-        teamImageView.isSkeletonable = true
-        teamTitleLabel.isSkeletonable = true
-        teamPointsLabel.isSkeletonable = true
     }
     
     required init?(coder: NSCoder) {

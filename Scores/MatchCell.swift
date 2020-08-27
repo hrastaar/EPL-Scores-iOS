@@ -11,7 +11,8 @@ import UIKit
 import SwiftyJSON
 
 class MatchCell: UITableViewCell {
-
+    var currTeam: String?
+    
     var team1ImageView = UIImageView()
     var team1TitleLabel = UILabel()
     var team1Score = UILabel()
@@ -21,6 +22,7 @@ class MatchCell: UITableViewCell {
     var team2Score = UILabel()
     
     var dateLabel = UILabel()
+    var resultLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -34,6 +36,7 @@ class MatchCell: UITableViewCell {
         addSubview(team1Score)
         addSubview(team2Score)
         addSubview(dateLabel)
+        addSubview(resultLabel)
         
         // configure images
         configureImageView(imageView: team1ImageView)
@@ -45,6 +48,7 @@ class MatchCell: UITableViewCell {
         configureTitleLabel(label: team1Score)
         configureTitleLabel(label: team2Score)
         configureTitleLabel(label: dateLabel)
+        configureTitleLabel(label: resultLabel)
 
         setTitleLabelConstraints()
         setImageConstraints()
@@ -84,7 +88,35 @@ class MatchCell: UITableViewCell {
             dateString += (word + " ")
         }
         dateLabel.text = dateString
-        dateLabel.font = UIFont.regularFont(size: 10)
+        dateLabel.font = UIFont.regularFont(size: 12)
+        
+        resultLabel.font = UIFont.regularFont(size: 14)
+        
+        if let currentTeam = currTeam {
+            if currentTeam == team1TitleLabel.text {
+                if team1Score.text! > team2Score.text! {
+                    resultLabel.text = "W"
+                    resultLabel.textColor = .systemGreen
+                } else if team1Score.text == team2Score.text {
+                    resultLabel.text = "D"
+                    resultLabel.textColor = .systemGray
+                } else {
+                    resultLabel.text = "L"
+                    resultLabel.textColor = .systemRed
+                }
+            } else {
+                if team1Score.text! > team2Score.text! {
+                    resultLabel.text = "L"
+                    resultLabel.textColor = .systemRed
+                } else if team1Score.text == team2Score.text {
+                    resultLabel.text = "D"
+                    resultLabel.textColor = .systemGray
+                } else {
+                    resultLabel.text = "W"
+                    resultLabel.textColor = .systemGreen
+                }
+            }
+        }
     }
     
     func configureImageView(imageView: UIImageView) {
@@ -138,8 +170,12 @@ class MatchCell: UITableViewCell {
         team2Score.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 5).isActive = true
         
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
-        dateLabel.leadingAnchor.constraint(equalTo: team1TitleLabel.leadingAnchor).isActive = true
+        dateLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         dateLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        resultLabel.translatesAutoresizingMaskIntoConstraints = false
+        resultLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
+        resultLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
         
     }
     

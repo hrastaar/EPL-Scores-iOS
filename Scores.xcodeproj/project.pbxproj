@@ -33,7 +33,7 @@
 		51C8B4A05F500B0B0672C7F4 /* Pods-Scores.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scores.debug.xcconfig"; path = "Target Support Files/Pods-Scores/Pods-Scores.debug.xcconfig"; sourceTree = "<group>"; };
 		741458B024F7186B0007D659 /* TeamNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamNewsViewController.swift; sourceTree = "<group>"; };
 		741458B524F71D0F0007D659 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		744D401A24D51255007C4E4F /* Scores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scores.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		744D401A24D51255007C4E4F /* Scores EPL Edition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scores EPL Edition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		744D401D24D51255007C4E4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		744D401F24D51255007C4E4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		744D402924D51257007C4E4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		744D401B24D51255007C4E4F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				744D401A24D51255007C4E4F /* Scores.app */,
+				744D401A24D51255007C4E4F /* Scores EPL Edition.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,7 +170,7 @@
 			);
 			name = Scores;
 			productName = Scores;
-			productReference = 744D401A24D51255007C4E4F /* Scores.app */;
+			productReference = 744D401A24D51255007C4E4F /* Scores EPL Edition.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -420,12 +420,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SDN5A8D5U;
 				INFOPLIST_FILE = Scores/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Rastaar.Scores;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Scores EPL Edition";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -439,12 +440,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SDN5A8D5U;
 				INFOPLIST_FILE = Scores/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Rastaar.Scores;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Scores EPL Edition";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
