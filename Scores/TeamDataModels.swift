@@ -35,7 +35,7 @@ struct TeamRecord: Codable {
     }
 }
 
-var teamColors: [String : [String]] = [
+let teamColors: [String : [String]] = [
     "Bournemouth" : ["E62333", "000000"],
     "Arsenal" : ["EF2D56", "023474", "9C824A"],
     "Brighton" : ["0055a9", "F8BC1B"],
@@ -61,3 +61,9 @@ var teamColors: [String : [String]] = [
     "Norwich" : ["0CF574"],
     "Sheffield United" : ["EF2D56"]
 ]
+
+let teamNames = ["Bournemouth", "Arsenal", "Brighton", "Burnley", "Chelsea", "Crystal Palace",
+             "Everton", "Huddersfield Town", "Leicester", "Liverpool", "Manchester City",
+             "Manchester United", "Newcastle United", "Southampton", "Stoke City", "Swansea City",
+             "Tottenham", "Watford", "West Bromwich Albion", "West Ham", "Wolverhampton Wanderers",
+    "Aston Villa", "Norwich", "Sheffield United"].sorted()

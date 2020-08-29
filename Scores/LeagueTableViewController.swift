@@ -70,14 +70,14 @@ extension LeagueTableViewController: UITableViewDelegate, UITableViewDataSource 
         teamNewsVC.title = teamRecords[indexPath.row].team
         teamNewsVC.tabBarItem = teamNewsBarItem
         
-//        let userBarItem = UITabBarItem()
-//        userBarItem.title = "Create User"
-//
-//        let createUserVC = CreateUserViewController()
-//        createUserVC.tabBarItem = userBarItem
+        let userBarItem = UITabBarItem()
+        userBarItem.title = "Create User"
+
+        let createUserVC = CreateUserViewController()
+        createUserVC.tabBarItem = userBarItem
         
         let teamTabBarViewController = UITabBarController()
-        teamTabBarViewController.viewControllers = [teamMatchesVC, teamNewsVC]
+        teamTabBarViewController.viewControllers = [teamMatchesVC, teamNewsVC, createUserVC]
         
         
         show(teamTabBarViewController, sender: self)

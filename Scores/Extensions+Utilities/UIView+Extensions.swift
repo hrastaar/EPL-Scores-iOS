@@ -18,3 +18,33 @@ extension UIView {
         bottomAnchor.constraint(equalTo: superView.bottomAnchor).isActive = true
     }
 }
+
+class TextFieldWithPadding: UITextField {
+    var textPadding = UIEdgeInsets(
+        top: 0,
+        left: 5,
+        bottom: 0,
+        right: 5
+    )
+
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        let rect = super.textRect(forBounds: bounds)
+        return rect.inset(by: textPadding)
+    }
+
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        let rect = super.editingRect(forBounds: bounds)
+        return rect.inset(by: textPadding)
+    }
+}
+
+extension UIColor
+{
+    var isDarkColor: Bool {
+        var r, g, b, a: CGFloat
+        (r, g, b, a) = (0, 0, 0, 0)
+        self.getRed(&r, green: &g, blue: &b, alpha: &a)
+        let lum = 0.2126 * r + 0.7152 * g + 0.0722 * b
+        return  lum < 0.50
+    }
+}
