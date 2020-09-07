@@ -19,6 +19,11 @@ class LeagueTableViewController: UIViewController {
         static let teamCell = "TeamCell"
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        // present the appropriate tab bar when this view is on top
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let appDelegate =
@@ -26,10 +31,8 @@ class LeagueTableViewController: UIViewController {
                 return
         }
         let managedContext = appDelegate.persistentContainer.viewContext
-        //2
-          let fetchRequest =
+        let fetchRequest =
             NSFetchRequest<NSManagedObject>(entityName: "User")
-        //3
         do {
             let savedInfo = try managedContext.fetch(fetchRequest)
             let currentUser: NSManagedObject = savedInfo[savedInfo.count - 1]
@@ -41,7 +44,7 @@ class LeagueTableViewController: UIViewController {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         
-        title = "Premier League Table"
+        title = "League Table"
         configureTableView()
         teamRecords = fetchTeamData()
     }
@@ -91,16 +94,10 @@ extension LeagueTableViewController: UITableViewDelegate, UITableViewDataSource 
         teamNewsVC.title = teamRecords[indexPath.row].team
         teamNewsVC.tabBarItem = teamNewsBarItem
         
-        let userBarItem = UITabBarItem()
-        userBarItem.title = "Update Profile"
-
-        let createUserVC = CreateUserViewController()
-        createUserVC.tabBarItem = userBarItem
-        
         let teamTabBarViewController = UITabBarController()
-        teamTabBarViewController.viewControllers = [teamMatchesVC, teamNewsVC, createUserVC]
+        teamTabBarViewController.viewControllers = [teamMatchesVC, teamNewsVC]
         
-        
+        self.tabBarController?.tabBar.isHidden = true
         show(teamTabBarViewController, sender: self)
     }
     

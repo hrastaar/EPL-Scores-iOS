@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let createUserBarItem = UITabBarItem()
         createUserBarItem.title = "Update Profile"
-        let createUserVC = UINavigationController(rootViewController: CreateUserViewController())
+        let createUserVC = UINavigationController(rootViewController: UpdateProfileViewController())
         createUserVC.navigationBar.prefersLargeTitles = true
         createUserVC.tabBarItem = createUserBarItem
         

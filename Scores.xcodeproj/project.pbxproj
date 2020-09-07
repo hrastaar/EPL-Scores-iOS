@@ -11,7 +11,7 @@
 		741458B124F7186B0007D659 /* TeamNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741458B024F7186B0007D659 /* TeamNewsViewController.swift */; };
 		741458B624F71D0F0007D659 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 741458B524F71D0F0007D659 /* Main.storyboard */; };
 		741458BB24F8651A0007D659 /* UserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 741458B924F8651A0007D659 /* UserModel.xcdatamodeld */; };
-		741458BD24F8668C0007D659 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741458BC24F8668C0007D659 /* CreateUserViewController.swift */; };
+		741458BD24F8668C0007D659 /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741458BC24F8668C0007D659 /* UpdateProfileViewController.swift */; };
 		7446BB702505FC2A00FF64D1 /* WelcomeBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7446BB6F2505FC2A00FF64D1 /* WelcomeBackViewController.swift */; };
 		744D401E24D51255007C4E4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744D401D24D51255007C4E4F /* AppDelegate.swift */; };
 		744D402024D51255007C4E4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744D401F24D51255007C4E4F /* SceneDelegate.swift */; };
@@ -38,7 +38,7 @@
 		741458B024F7186B0007D659 /* TeamNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamNewsViewController.swift; sourceTree = "<group>"; };
 		741458B524F71D0F0007D659 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		741458BA24F8651A0007D659 /* UserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserModel.xcdatamodel; sourceTree = "<group>"; };
-		741458BC24F8668C0007D659 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		741458BC24F8668C0007D659 /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
 		7446BB6F2505FC2A00FF64D1 /* WelcomeBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeBackViewController.swift; sourceTree = "<group>"; };
 		744D401A24D51255007C4E4F /* Scores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		744D401D24D51255007C4E4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,11 +85,12 @@
 		741458B324F71C4B0007D659 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				741458B524F71D0F0007D659 /* Main.storyboard */,
 				74DF737224D514B2001691A5 /* LeagueTableViewController.swift */,
 				741458B024F7186B0007D659 /* TeamNewsViewController.swift */,
 				74DF73A624D6333C001691A5 /* TeamMatchesViewController.swift */,
 				746A7CBD24E1109200DFD653 /* MatchDetailsViewController.swift */,
-				741458BC24F8668C0007D659 /* CreateUserViewController.swift */,
+				741458BC24F8668C0007D659 /* UpdateProfileViewController.swift */,
 				7446BB6F2505FC2A00FF64D1 /* WelcomeBackViewController.swift */,
 			);
 			name = "View Controllers";
@@ -105,6 +106,18 @@
 				74F2043824EB5BCD00A65350 /* NewsCell.swift */,
 			);
 			name = "Structs + Cells";
+			sourceTree = "<group>";
+		};
+		7446BB732506119900FF64D1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				746A7CBB24D95B7E00DFD653 /* DIN-Regular.ttf */,
+				741458B924F8651A0007D659 /* UserModel.xcdatamodeld */,
+				74FBF88D24FA37640060EBF0 /* GoogleService-Info.plist */,
+				74DF737924D51CA3001691A5 /* TeamDataModels.swift */,
+				74DF73A424D62C43001691A5 /* AssetBundle.bundle */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		744D401124D51255007C4E4F = {
@@ -128,20 +141,15 @@
 		744D401C24D51255007C4E4F /* Scores */ = {
 			isa = PBXGroup;
 			children = (
-				741458B524F71D0F0007D659 /* Main.storyboard */,
+				7446BB732506119900FF64D1 /* Resources */,
 				741458B424F71C790007D659 /* Structs + Cells */,
 				741458B324F71C4B0007D659 /* View Controllers */,
-				746A7CBB24D95B7E00DFD653 /* DIN-Regular.ttf */,
-				74DF73A424D62C43001691A5 /* AssetBundle.bundle */,
 				74DF737424D5162E001691A5 /* Extensions+Utilities */,
 				744D401D24D51255007C4E4F /* AppDelegate.swift */,
 				744D401F24D51255007C4E4F /* SceneDelegate.swift */,
 				744D402924D51257007C4E4F /* Assets.xcassets */,
 				744D402B24D51257007C4E4F /* LaunchScreen.storyboard */,
 				744D402E24D51257007C4E4F /* Info.plist */,
-				74FBF88D24FA37640060EBF0 /* GoogleService-Info.plist */,
-				74DF737924D51CA3001691A5 /* TeamDataModels.swift */,
-				741458B924F8651A0007D659 /* UserModel.xcdatamodeld */,
 			);
 			path = Scores;
 			sourceTree = "<group>";
@@ -292,7 +300,7 @@
 				74DF737824D51981001691A5 /* TeamCell.swift in Sources */,
 				74DF737624D51650001691A5 /* UIView+Extensions.swift in Sources */,
 				74DF737324D514B2001691A5 /* LeagueTableViewController.swift in Sources */,
-				741458BD24F8668C0007D659 /* CreateUserViewController.swift in Sources */,
+				741458BD24F8668C0007D659 /* UpdateProfileViewController.swift in Sources */,
 				744D402024D51255007C4E4F /* SceneDelegate.swift in Sources */,
 				741458B124F7186B0007D659 /* TeamNewsViewController.swift in Sources */,
 				74F2043924EB5BCD00A65350 /* NewsCell.swift in Sources */,

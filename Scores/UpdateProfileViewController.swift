@@ -1,5 +1,5 @@
 //
-//  CreateUserViewController.swift
+//  UpdateProfileViewController.swift
 //  Scores
 //
 //  Created by Rastaar Haghi on 8/27/20.
@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import FirebaseDatabase
 
-class CreateUserViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class UpdateProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
     var usernameLabel: UILabel!
     var favTeamLabel: UILabel!
@@ -66,28 +66,44 @@ class CreateUserViewController: UIViewController, UIPickerViewDataSource, UIPick
     @objc
     func createUser() {
         let username = self.usernameTextField.text!, favTeam = self.selectedTeam
-        print("Creating a user with username \(username) and favorite team \(favTeam)")
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        guard let entity = NSEntityDescription.entity(forEntityName: "User", in: managedContext) else {
-            return
-        }
-        let user = NSManagedObject(entity: entity, insertInto: managedContext)
-        user.setValue(username, forKeyPath: "username")
-        user.setValue(favTeam, forKeyPath: "favoriteTeam")
-        
-        do {
-            try managedContext.save()
-            print("Updating Profile: username is now \(username), and favorite team is now \(favTeam)")
-        } catch let error as NSError {
-            print("Could not save.\(error), \(error.userInfo)")
-        }
-        
-        if let navController = self.navigationController {
-            navController.popViewController(animated: true)
+        if username.count < 5 {
+            let alertController = UIAlertController(title: "Error!", message: "Please make sure that your username is greater than 5 characters long.", preferredStyle: .actionSheet)
+            let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+            alertController.addAction(dismissAction)
+            present(alertController, animated: true, completion: nil)
+        } else if favTeam == "Select your Favorite Team" {
+            let alertController = UIAlertController(title: "Error!", message: "Please make sure that you select a Premier League team to follow!", preferredStyle: .actionSheet)
+            let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+            alertController.addAction(dismissAction)
+            present(alertController, animated: true, completion: nil)
+        } else {
+            print("Creating a user with username \(username) and favorite team \(favTeam)")
+            
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+            }
+            let managedContext = appDelegate.persistentContainer.viewContext
+            guard let entity = NSEntityDescription.entity(forEntityName: "User", in: managedContext) else {
+                return
+            }
+            let user = NSManagedObject(entity: entity, insertInto: managedContext)
+            user.setValue(username, forKeyPath: "username")
+            user.setValue(favTeam, forKeyPath: "favoriteTeam")
+            
+            do {
+                try managedContext.save()
+                print("Updating Profile: username is now \(username), and favorite team is now \(favTeam)")
+                let alertController = UIAlertController(title: "Saved Profile!", message: "Your username has been updated to \(username), and your favorite team is now \(favTeam)", preferredStyle: .actionSheet)
+                let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+                alertController.addAction(dismissAction)
+                present(alertController, animated: true, completion: nil)
+            } catch let error as NSError {
+                print("Could not save.\(error), \(error.userInfo)")
+            }
+            
+            if let navController = self.navigationController {
+                navController.popViewController(animated: true)
+            }
         }
     }
 
@@ -95,7 +111,7 @@ class CreateUserViewController: UIViewController, UIPickerViewDataSource, UIPick
 }
 
 // UIPickerView Extension
-extension CreateUserViewController {
+extension UpdateProfileViewController {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -143,7 +159,7 @@ extension CreateUserViewController {
 }
 
 // UI Element initializers
-extension CreateUserViewController {
+extension UpdateProfileViewController {
     
     func customizedTextFieldWithPadding(yPos: CGFloat) -> TextFieldWithPadding {
         let textField = TextFieldWithPadding(frame: CGRect(x: 30, y: yPos, width: view.bounds.maxX - 60, height: 50))
@@ -187,12 +203,5 @@ extension CreateUserViewController {
         let pickerView = UIPickerView()
         pickerView.delegate = self
         favTeamTextField.inputView = pickerView
-    }
-    
-    @objc func action() {
-       view.endEditing(true)
-        if(self.selectedTeam != "Select your Favorite Team") {
-            print(self.selectedTeam)
-        }
     }
 }
