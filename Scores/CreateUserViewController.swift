@@ -12,7 +12,6 @@ import FirebaseDatabase
 
 class CreateUserViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
-    
     var usernameLabel: UILabel!
     var favTeamLabel: UILabel!
     
@@ -26,30 +25,34 @@ class CreateUserViewController: UIViewController, UIPickerViewDataSource, UIPick
     var currUser: NSManagedObject?
     
     var ref = Database.database().reference()
-    
+
+    struct User {
+        var username: String
+        var favoriteTeam: String
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Create a User Account"
+        title = "Update Profile"
         view.backgroundColor = UIColor(white: 247.0/255.0, alpha: 1)
         configureLabels()
         configureTextFields()
-        submitButtonInit()
+        self.submitButton = configureSubmitButton()
+        view.addSubview(self.submitButton)
         createPickerView()
-        dismissPickerView()
-        createUser()
     }
     
     func configureTextFields() {
-        self.usernameTextField = customizedTextFieldWithPadding(yPos: 150)
-        self.favTeamTextField = customizedTextFieldWithPadding(yPos: 275)
+        self.usernameTextField = customizedTextFieldWithPadding(yPos: 200)
+        self.favTeamTextField = customizedTextFieldWithPadding(yPos: 325)
         self.favTeamTextField.textAlignment = .natural
         self.view.addSubview(usernameTextField)
         self.view.addSubview(favTeamTextField)
     }
     
     func configureLabels() {
-        self.usernameLabel = customizedLabel(text: "Select a username", size: 24, yPos: 100)
-        self.favTeamLabel = customizedLabel(text: "What is your favorite team?", size: 24, yPos: 225)
+        self.usernameLabel = customizedLabel(text: "Pick a username", size: 24, yPos: 150)
+        self.favTeamLabel = customizedLabel(text: "Select your favorite team", size: 24, yPos: 275)
         self.view.addSubview(usernameLabel)
         self.view.addSubview(favTeamLabel)
     }
@@ -62,15 +65,36 @@ class CreateUserViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     @objc
     func createUser() {
-        print("Started createUser()")
-        let deviceID = UIDevice.current.identifierForVendor?.uuidString ?? "Unknown Device ID"
-        print(deviceID)
-        print("Ended createUser()")
+        let username = self.usernameTextField.text!, favTeam = self.selectedTeam
+        print("Creating a user with username \(username) and favorite team \(favTeam)")
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        guard let entity = NSEntityDescription.entity(forEntityName: "User", in: managedContext) else {
+            return
+        }
+        let user = NSManagedObject(entity: entity, insertInto: managedContext)
+        user.setValue(username, forKeyPath: "username")
+        user.setValue(favTeam, forKeyPath: "favoriteTeam")
+        
+        do {
+            try managedContext.save()
+            print("Updating Profile: username is now \(username), and favorite team is now \(favTeam)")
+        } catch let error as NSError {
+            print("Could not save.\(error), \(error.userInfo)")
+        }
+        
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
     }
-    
+
 
 }
 
+// UIPickerView Extension
 extension CreateUserViewController {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -113,11 +137,12 @@ extension CreateUserViewController {
                 }
             }
         }
-        
+        self.view.endEditing(true)
     }
     
 }
 
+// UI Element initializers
 extension CreateUserViewController {
     
     func customizedTextFieldWithPadding(yPos: CGFloat) -> TextFieldWithPadding {
@@ -139,19 +164,18 @@ extension CreateUserViewController {
         return textLabel
     }
     
-    func submitButtonInit() {
-        self.submitButton = UIButton()
-        self.submitButton.setTitle("Create User", for: .normal)
-        self.submitButton.backgroundColor = UIColor(red: 0.130, green: 0.130, blue: 0.130, alpha: 0.85)
-        self.submitButton.titleLabel!.font = UIFont.regularFont(size: 18)
-        self.submitButton.layer.cornerRadius = 15
-        self.submitButton.setTitleColor(.white, for: .normal)
-        self.submitButton.frame = CGRect(x: UIScreen.main.bounds.midX - 100, y: 400, width: 200, height: 50)
-        self.submitButton.titleLabel!.font = UIFont.regularFont(size: 24)
-        self.submitButton.backgroundColor = UIColor(red: 0.130, green: 0.130, blue: 0.130, alpha: 0.9)
-        self.submitButton.addTarget(self, action: #selector(createUser), for: .touchUpInside)
-        view.addSubview(submitButton)
-        print("Created User")
+    func configureSubmitButton() -> UIButton {
+        let submitButton = UIButton()
+        submitButton.setTitle("Update Information", for: .normal)
+        submitButton.backgroundColor = UIColor(red: 0.130, green: 0.130, blue: 0.130, alpha: 0.85)
+        submitButton.titleLabel!.font = UIFont.regularFont(size: 18)
+        submitButton.layer.cornerRadius = 15
+        submitButton.setTitleColor(.white, for: .normal)
+        submitButton.frame = CGRect(x: UIScreen.main.bounds.midX - 100, y: 400, width: 200, height: 50)
+        submitButton.titleLabel!.font = UIFont.regularFont(size: 24)
+        submitButton.backgroundColor = UIColor(red: 0.130, green: 0.130, blue: 0.130, alpha: 0.9)
+        submitButton.addTarget(self, action: #selector(createUser), for: .touchUpInside)
+        return submitButton
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -163,16 +187,6 @@ extension CreateUserViewController {
         let pickerView = UIPickerView()
         pickerView.delegate = self
         favTeamTextField.inputView = pickerView
-    }
-    
-    func dismissPickerView() {
-//        let toolBar = UIToolbar()
-//        toolBar.sizeToFit()
-//
-//        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.action))
-//        toolBar.setItems([button], animated: true)
-//        toolBar.isUserInteractionEnabled = true
-//        favTeamTextField.inputAccessoryView = toolBar
     }
     
     @objc func action() {

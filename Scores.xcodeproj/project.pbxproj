@@ -12,6 +12,7 @@
 		741458B624F71D0F0007D659 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 741458B524F71D0F0007D659 /* Main.storyboard */; };
 		741458BB24F8651A0007D659 /* UserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 741458B924F8651A0007D659 /* UserModel.xcdatamodeld */; };
 		741458BD24F8668C0007D659 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741458BC24F8668C0007D659 /* CreateUserViewController.swift */; };
+		7446BB702505FC2A00FF64D1 /* WelcomeBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7446BB6F2505FC2A00FF64D1 /* WelcomeBackViewController.swift */; };
 		744D401E24D51255007C4E4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744D401D24D51255007C4E4F /* AppDelegate.swift */; };
 		744D402024D51255007C4E4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744D401F24D51255007C4E4F /* SceneDelegate.swift */; };
 		744D402A24D51257007C4E4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 744D402924D51257007C4E4F /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		741458B524F71D0F0007D659 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		741458BA24F8651A0007D659 /* UserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserModel.xcdatamodel; sourceTree = "<group>"; };
 		741458BC24F8668C0007D659 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		7446BB6F2505FC2A00FF64D1 /* WelcomeBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeBackViewController.swift; sourceTree = "<group>"; };
 		744D401A24D51255007C4E4F /* Scores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		744D401D24D51255007C4E4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		744D401F24D51255007C4E4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				74DF73A624D6333C001691A5 /* TeamMatchesViewController.swift */,
 				746A7CBD24E1109200DFD653 /* MatchDetailsViewController.swift */,
 				741458BC24F8668C0007D659 /* CreateUserViewController.swift */,
+				7446BB6F2505FC2A00FF64D1 /* WelcomeBackViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				746A7CBE24E1109200DFD653 /* MatchDetailsViewController.swift in Sources */,
 				744D401E24D51255007C4E4F /* AppDelegate.swift in Sources */,
 				741458BB24F8651A0007D659 /* UserModel.xcdatamodeld in Sources */,
+				7446BB702505FC2A00FF64D1 /* WelcomeBackViewController.swift in Sources */,
 				74DF73A724D6333C001691A5 /* TeamMatchesViewController.swift in Sources */,
 				74DF737824D51981001691A5 /* TeamCell.swift in Sources */,
 				74DF737624D51650001691A5 /* UIView+Extensions.swift in Sources */,

@@ -7,6 +7,8 @@ target 'Scores' do
   pod 'SwiftyJSON'
   pod 'Hex'
   pod 'Eureka'
+  pod 'liquid-swipe'
+  pod 'LBConfettiView'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
 end

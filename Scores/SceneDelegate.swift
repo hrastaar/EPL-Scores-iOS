@@ -17,14 +17,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window?.rootViewController = CreateUserViewController()
-        return
-        let navController = UINavigationController(rootViewController: LeagueTableViewController())
-        navController.navigationBar.prefersLargeTitles = true
-    
+        
+        let leagueTableBarItem = UITabBarItem()
+        leagueTableBarItem.title = "League Table"
+        let leagueTableVC = UINavigationController(rootViewController: LeagueTableViewController())
+        leagueTableVC.navigationBar.prefersLargeTitles = true
+        leagueTableVC.tabBarItem = leagueTableBarItem
+        
+        let createUserBarItem = UITabBarItem()
+        createUserBarItem.title = "Update Profile"
+        let createUserVC = UINavigationController(rootViewController: CreateUserViewController())
+        createUserVC.navigationBar.prefersLargeTitles = true
+        createUserVC.tabBarItem = createUserBarItem
+        
+        let menuTabViewController = UITabBarController()
+        menuTabViewController.viewControllers = [leagueTableVC, createUserVC]
+        
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = navController
+        window?.rootViewController = menuTabViewController
         window?.makeKeyAndVisible()
     }
 
@@ -56,7 +67,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        //(UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
 

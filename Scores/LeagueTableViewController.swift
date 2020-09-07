@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import SwiftyJSON
 
 class LeagueTableViewController: UIViewController {
@@ -20,6 +21,26 @@ class LeagueTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        //2
+          let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "User")
+        //3
+        do {
+            let savedInfo = try managedContext.fetch(fetchRequest)
+            let currentUser: NSManagedObject = savedInfo[savedInfo.count - 1]
+            let welcomeViewController = WelcomeBackViewController()
+            welcomeViewController.username = currentUser.value(forKey: "username") as? String
+            welcomeViewController.favoriteTeam = currentUser.value(forKey: "favoriteTeam") as? String
+            present(welcomeViewController, animated: true, completion: nil)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
         title = "Premier League Table"
         configureTableView()
         teamRecords = fetchTeamData()
@@ -71,7 +92,7 @@ extension LeagueTableViewController: UITableViewDelegate, UITableViewDataSource 
         teamNewsVC.tabBarItem = teamNewsBarItem
         
         let userBarItem = UITabBarItem()
-        userBarItem.title = "Create User"
+        userBarItem.title = "Update Profile"
 
         let createUserVC = CreateUserViewController()
         createUserVC.tabBarItem = userBarItem

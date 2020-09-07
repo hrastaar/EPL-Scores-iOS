@@ -22,9 +22,9 @@ extension UIView {
 class TextFieldWithPadding: UITextField {
     var textPadding = UIEdgeInsets(
         top: 0,
-        left: 5,
+        left: 10,
         bottom: 0,
-        right: 5
+        right: 10
     )
 
     override func textRect(forBounds bounds: CGRect) -> CGRect {
