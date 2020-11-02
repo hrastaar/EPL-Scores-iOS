@@ -21,6 +21,7 @@
 		746A7CBC24D95B7E00DFD653 /* DIN-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 746A7CBB24D95B7E00DFD653 /* DIN-Regular.ttf */; };
 		746A7CBE24E1109200DFD653 /* MatchDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A7CBD24E1109200DFD653 /* MatchDetailsViewController.swift */; };
 		746A7CC024E12A7900DFD653 /* MatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A7CBF24E12A7900DFD653 /* MatchData.swift */; };
+		74C4C49A252D478B008F5543 /* DGRunkeeperSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C4C499252D478B008F5543 /* DGRunkeeperSwitch.swift */; };
 		74DF737324D514B2001691A5 /* LeagueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF737224D514B2001691A5 /* LeagueTableViewController.swift */; };
 		74DF737624D51650001691A5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF737524D51650001691A5 /* UIView+Extensions.swift */; };
 		74DF737824D51981001691A5 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF737724D51981001691A5 /* TeamCell.swift */; };
@@ -29,6 +30,9 @@
 		74DF73A724D6333C001691A5 /* TeamMatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF73A624D6333C001691A5 /* TeamMatchesViewController.swift */; };
 		74F2043724EB586400A65350 /* NewsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F2043624EB586400A65350 /* NewsStruct.swift */; };
 		74F2043924EB5BCD00A65350 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F2043824EB5BCD00A65350 /* NewsCell.swift */; };
+		74F86F742544194B00E460EB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F86F732544194B00E460EB /* ChatViewController.swift */; };
+		74F86F7725441BFC00E460EB /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F86F7625441BFC00E460EB /* Message.swift */; };
+		74F86F7A25441C3D00E460EB /* CustomMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F86F7925441C3D00E460EB /* CustomMessageCell.swift */; };
 		74FBF88E24FA37640060EBF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF88D24FA37640060EBF0 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +54,7 @@
 		746A7CBB24D95B7E00DFD653 /* DIN-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Regular.ttf"; sourceTree = "<group>"; };
 		746A7CBD24E1109200DFD653 /* MatchDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailsViewController.swift; sourceTree = "<group>"; };
 		746A7CBF24E12A7900DFD653 /* MatchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchData.swift; sourceTree = "<group>"; };
+		74C4C499252D478B008F5543 /* DGRunkeeperSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGRunkeeperSwitch.swift; sourceTree = "<group>"; };
 		74DF737224D514B2001691A5 /* LeagueTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueTableViewController.swift; sourceTree = "<group>"; };
 		74DF737524D51650001691A5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		74DF737724D51981001691A5 /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
@@ -58,6 +63,9 @@
 		74DF73A624D6333C001691A5 /* TeamMatchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMatchesViewController.swift; sourceTree = "<group>"; };
 		74F2043624EB586400A65350 /* NewsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStruct.swift; sourceTree = "<group>"; };
 		74F2043824EB5BCD00A65350 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		74F86F732544194B00E460EB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		74F86F7625441BFC00E460EB /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		74F86F7925441C3D00E460EB /* CustomMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMessageCell.swift; sourceTree = "<group>"; };
 		74FBF88D24FA37640060EBF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A3FA5DB52B41FDA456C611FE /* Pods_Scores.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scores.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -92,6 +100,7 @@
 				746A7CBD24E1109200DFD653 /* MatchDetailsViewController.swift */,
 				741458BC24F8668C0007D659 /* UpdateProfileViewController.swift */,
 				7446BB6F2505FC2A00FF64D1 /* WelcomeBackViewController.swift */,
+				74F86F732544194B00E460EB /* ChatViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -104,6 +113,8 @@
 				746A7CBF24E12A7900DFD653 /* MatchData.swift */,
 				74F2043624EB586400A65350 /* NewsStruct.swift */,
 				74F2043824EB5BCD00A65350 /* NewsCell.swift */,
+				74F86F7625441BFC00E460EB /* Message.swift */,
+				74F86F7925441C3D00E460EB /* CustomMessageCell.swift */,
 			);
 			name = "Structs + Cells";
 			sourceTree = "<group>";
@@ -116,6 +127,7 @@
 				74FBF88D24FA37640060EBF0 /* GoogleService-Info.plist */,
 				74DF737924D51CA3001691A5 /* TeamDataModels.swift */,
 				74DF73A424D62C43001691A5 /* AssetBundle.bundle */,
+				74C4C499252D478B008F5543 /* DGRunkeeperSwitch.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -295,15 +307,19 @@
 				746A7CBE24E1109200DFD653 /* MatchDetailsViewController.swift in Sources */,
 				744D401E24D51255007C4E4F /* AppDelegate.swift in Sources */,
 				741458BB24F8651A0007D659 /* UserModel.xcdatamodeld in Sources */,
+				74F86F7A25441C3D00E460EB /* CustomMessageCell.swift in Sources */,
 				7446BB702505FC2A00FF64D1 /* WelcomeBackViewController.swift in Sources */,
+				74F86F7725441BFC00E460EB /* Message.swift in Sources */,
 				74DF73A724D6333C001691A5 /* TeamMatchesViewController.swift in Sources */,
 				74DF737824D51981001691A5 /* TeamCell.swift in Sources */,
 				74DF737624D51650001691A5 /* UIView+Extensions.swift in Sources */,
 				74DF737324D514B2001691A5 /* LeagueTableViewController.swift in Sources */,
 				741458BD24F8668C0007D659 /* UpdateProfileViewController.swift in Sources */,
 				744D402024D51255007C4E4F /* SceneDelegate.swift in Sources */,
+				74C4C49A252D478B008F5543 /* DGRunkeeperSwitch.swift in Sources */,
 				741458B124F7186B0007D659 /* TeamNewsViewController.swift in Sources */,
 				74F2043924EB5BCD00A65350 /* NewsCell.swift in Sources */,
+				74F86F742544194B00E460EB /* ChatViewController.swift in Sources */,
 				74DF737A24D51CA3001691A5 /* TeamDataModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,7 +458,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 2SDN5A8D5U;
 				INFOPLIST_FILE = Scores/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -450,7 +466,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Rastaar.Scores;
 				PRODUCT_NAME = Scores;
 				SWIFT_VERSION = 5.0;
@@ -464,7 +480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 2SDN5A8D5U;
 				INFOPLIST_FILE = Scores/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -472,7 +488,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Rastaar.Scores;
 				PRODUCT_NAME = Scores;
 				SWIFT_VERSION = 5.0;

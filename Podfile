@@ -1,4 +1,4 @@
-platform :ios, '10.0'
+platform :ios, '13.1'
 
 target 'Scores' do
   use_frameworks!
@@ -6,9 +6,8 @@ target 'Scores' do
   # Pods for Scores
   pod 'SwiftyJSON'
   pod 'Hex'
-  pod 'Eureka'
   pod 'liquid-swipe'
   pod 'LBConfettiView'
   pod 'Firebase/Auth'
-  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
 end

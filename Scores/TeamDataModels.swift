@@ -59,11 +59,13 @@ let teamColors: [String : [String]] = [
     "Wolverhampton Wanderers" : ["2A2B2E"],
     "Aston Villa" : ["AB2346"],
     "Norwich" : ["0CF574"],
-    "Sheffield United" : ["EF2D56"]
+    "Sheffield United" : ["EF2D56"],
+    "Leeds" : ["034694"],
+    "Fulham" : ["EF2D56"]
 ]
 
 let teamNames = ["Bournemouth", "Arsenal", "Brighton", "Burnley", "Chelsea", "Crystal Palace",
              "Everton", "Huddersfield Town", "Leicester", "Liverpool", "Manchester City",
              "Manchester United", "Newcastle United", "Southampton", "Stoke City", "Swansea City",
              "Tottenham", "Watford", "West Bromwich Albion", "West Ham", "Wolverhampton Wanderers",
-    "Aston Villa", "Norwich", "Sheffield United"].sorted()
+    "Aston Villa", "Norwich", "Sheffield United", "Fulham", "Leeds"].sorted()

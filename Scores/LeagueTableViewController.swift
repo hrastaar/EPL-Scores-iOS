@@ -14,6 +14,7 @@ class LeagueTableViewController: UIViewController {
 
     var tableView = UITableView()
     var teamRecords: [TeamRecord] = []
+    var season: String = "20-21"
     
     struct Cells {
         static let teamCell = "TeamCell"
@@ -35,11 +36,14 @@ class LeagueTableViewController: UIViewController {
             NSFetchRequest<NSManagedObject>(entityName: "User")
         do {
             let savedInfo = try managedContext.fetch(fetchRequest)
-            let currentUser: NSManagedObject = savedInfo[savedInfo.count - 1]
-            let welcomeViewController = WelcomeBackViewController()
-            welcomeViewController.username = currentUser.value(forKey: "username") as? String
-            welcomeViewController.favoriteTeam = currentUser.value(forKey: "favoriteTeam") as? String
-            present(welcomeViewController, animated: true, completion: nil)
+            if savedInfo.count > 0 {
+                let currentUser: NSManagedObject = savedInfo[savedInfo.count - 1]
+                let welcomeViewController = WelcomeBackViewController()
+                welcomeViewController.username = currentUser.value(forKey: "username") as? String
+                welcomeViewController.favoriteTeam = currentUser.value(forKey: "favoriteTeam") as? String
+                present(welcomeViewController, animated: true, completion: nil)
+            }
+            
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
@@ -81,11 +85,14 @@ extension LeagueTableViewController: UITableViewDelegate, UITableViewDataSource 
         let teamMatchBarItem = UITabBarItem()
         teamMatchBarItem.title = "Scores"
         
+        // Match View Controller
         let teamMatchesVC = TeamMatchesViewController()
+        teamMatchesVC.season = self.season
         teamMatchesVC.teamInfo = teamRecords[indexPath.row]
         teamMatchesVC.title = teamRecords[indexPath.row].team
         teamMatchesVC.tabBarItem = teamMatchBarItem
         
+        // News View Controller
         let teamNewsBarItem = UITabBarItem()
         teamNewsBarItem.title = "News"
         
@@ -94,8 +101,17 @@ extension LeagueTableViewController: UITableViewDelegate, UITableViewDataSource 
         teamNewsVC.title = teamRecords[indexPath.row].team
         teamNewsVC.tabBarItem = teamNewsBarItem
         
+        // Chat View Controller
+        let chatBarItem = UITabBarItem()
+        chatBarItem.title = "Chat"
+        
+        let teamChatVC = ChatViewController()
+        teamChatVC.teamInfo = teamRecords[indexPath.row]
+        teamChatVC.title = teamRecords[indexPath.row].team
+        teamChatVC.tabBarItem = chatBarItem
+        
         let teamTabBarViewController = UITabBarController()
-        teamTabBarViewController.viewControllers = [teamMatchesVC, teamNewsVC]
+        teamTabBarViewController.viewControllers = [teamMatchesVC, teamNewsVC, teamChatVC]
         
         self.tabBarController?.tabBar.isHidden = true
         show(teamTabBarViewController, sender: self)
@@ -105,7 +121,7 @@ extension LeagueTableViewController: UITableViewDelegate, UITableViewDataSource 
 
 extension LeagueTableViewController {
     func fetchTeamData() -> [TeamRecord] {
-        let request = NSMutableURLRequest(url: NSURL(string: "http://hrastaar.com/api/premierleague/19-20/standings")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "http://hrastaar.com/api/premierleague/" + self.season + "/standings")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
         request.httpMethod = "GET"

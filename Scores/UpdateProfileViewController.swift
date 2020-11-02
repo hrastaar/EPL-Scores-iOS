@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-import FirebaseDatabase
+import Firebase
 
 class UpdateProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
@@ -24,8 +24,6 @@ class UpdateProfileViewController: UIViewController, UIPickerViewDataSource, UIP
     var selectedTeam = "Select your Favorite Team"
     var currUser: NSManagedObject?
     
-    var ref = Database.database().reference()
-
     struct User {
         var username: String
         var favoriteTeam: String
@@ -182,7 +180,7 @@ extension UpdateProfileViewController {
     
     func configureSubmitButton() -> UIButton {
         let submitButton = UIButton()
-        submitButton.setTitle("Update Information", for: .normal)
+        submitButton.setTitle("Update Info", for: .normal)
         submitButton.backgroundColor = UIColor(red: 0.130, green: 0.130, blue: 0.130, alpha: 0.85)
         submitButton.titleLabel!.font = UIFont.regularFont(size: 18)
         submitButton.layer.cornerRadius = 15

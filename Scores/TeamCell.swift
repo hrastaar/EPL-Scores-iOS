@@ -88,3 +88,27 @@ class TeamCell: UITableViewCell {
         teamRankLabel.font = UIFont.regularFont(size: 20)
     }
 }
+
+class ToggleCell: UITableViewCell {
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        let runkeeperSwitch = DGRunkeeperSwitch(titles: ["2019-2020", "2020-2021"])
+        runkeeperSwitch.backgroundColor = UIColor(red: 229.0/255.0, green: 163.0/255.0, blue: 48.0/255.0, alpha: 1.0)
+        runkeeperSwitch.selectedBackgroundColor = .white
+        runkeeperSwitch.titleColor = .white
+        runkeeperSwitch.selectedTitleColor = UIColor(red: 255.0/255.0, green: 196.0/255.0, blue: 92.0/255.0, alpha: 1.0)
+        runkeeperSwitch.titleFont = UIFont(name: "HelveticaNeue-Medium", size: 13.0)
+        runkeeperSwitch.frame = CGRect(x: 30.0, y: 40.0, width: 200.0, height: 30.0)
+        self.addSubview(runkeeperSwitch)
+        
+
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+}

@@ -12,6 +12,7 @@ import SwiftyJSON
 
 class TeamMatchesViewController: UIViewController {
     
+    var season: String = ""
     var teamInfo: TeamRecord?
     var tableView = UITableView()
     var teamMatches: [JSON] = []
@@ -41,7 +42,7 @@ class TeamMatchesViewController: UIViewController {
             navigationController?.navigationBar.tintColor = UIColor(hex: "2A2B2E")
         }
         self.configureTableView()
-        gatherSeasonMatches(teamName: teamInfo!.team)
+        gatherSeasonMatches(teamName: teamInfo!.team, season: self.season)
     }
     
     func configureTableView() {
@@ -94,17 +95,16 @@ extension TeamMatchesViewController: UITableViewDelegate, UITableViewDataSource 
 
 extension TeamMatchesViewController {
     
-    func gatherSeasonMatches(teamName: String) {
+    func gatherSeasonMatches(teamName: String, season: String) {
         print("Looking for match data for \(teamName)")
         seasonMatchData.removeAll()
         for i in stride(from: 38, to: 0, by: -1) {
-            gatherWeekMatches(weekNumber: i, teamName: teamName)
+            gatherWeekMatches(weekNumber: i, teamName: teamName, season: season)
         }
     }
     
-    func gatherWeekMatches(weekNumber: Int, teamName: String) {
-        
-        let request = NSMutableURLRequest(url: NSURL(string: "http://hrastaar.com/api/premierleague/19-20/week/\(weekNumber)")! as URL,
+    func gatherWeekMatches(weekNumber: Int, teamName: String, season: String) {
+        let request = NSMutableURLRequest(url: NSURL(string: "http://hrastaar.com/api/premierleague/\(season)/week/\(weekNumber)")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
         request.httpMethod = "GET"
@@ -117,6 +117,10 @@ extension TeamMatchesViewController {
                 if let data = data {
                     do {
                         let jsonData = try JSON(data: data)
+                        let STATUS = jsonData["status"].int
+                        if STATUS != 0 {
+                            return
+                        }
                         if let matches = jsonData["matches"].array {
                             for match in matches {
                                 if(match["team1"]["teamName"].stringValue == teamName || match["team2"]["teamName"].stringValue == teamName) {
