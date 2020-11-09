@@ -10,4 +10,5 @@ target 'Scores' do
   pod 'LBConfettiView'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'ChameleonFramework'
 end

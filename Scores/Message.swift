@@ -8,5 +8,6 @@
 
 class Message {
     var sender: String = ""
+    var club: String = ""
     var message: String = ""
 }

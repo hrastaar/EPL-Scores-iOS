@@ -8,13 +8,15 @@
 
 import UIKit
 
-class CustomMessageCell: UITableViewCell {
-    @IBOutlet var messageBackground: UIView!
+class MessageCell: UITableViewCell {
+    var senderUsername = UILabel()
     @IBOutlet var avatarImageView: UIImageView!
     @IBOutlet var messageBody: UILabel!
-    @IBOutlet var senderUsername: UILabel!
+    @IBOutlet var messageBackground: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        messageBackground.layer.cornerRadius = 2
+        avatarImageView.backgroundColor = .clear
     }
 }

@@ -13,7 +13,7 @@ import SwiftyJSON
 class TeamMatchesViewController: UIViewController {
     
     var season: String = ""
-    var teamInfo: TeamRecord?
+    var teamInfo: TeamData?
     var tableView = UITableView()
     var teamMatches: [JSON] = []
     var newsArticles: [News] = []

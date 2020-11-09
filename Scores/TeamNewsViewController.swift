@@ -13,7 +13,7 @@ import SafariServices
 
 class TeamNewsViewController: UIViewController, SFSafariViewControllerDelegate {
     
-    var teamInfo: TeamRecord?
+    var teamInfo: TeamData?
     var tableView = UITableView()
     var newsArticles: [News] = []
     
@@ -90,9 +90,11 @@ extension TeamNewsViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension TeamNewsViewController {
+    // Fetch club news from newsapi.org
     func gatherTeamNews(teamName: String) {
         let API_KEY = "0472e96928694078ad0d3c39a540341f"
-        let newsURL =  "http://newsapi.org/v2/everything?qInTitle=\(teamName.replacingOccurrences(of: " ", with: "%20"))&sortBy=popularity&apiKey=" + API_KEY
+        let preferredLanguage = NSLocale.preferredLanguages.first ?? "en"
+        let newsURL =  "http://newsapi.org/v2/everything?qInTitle=fc%20\(teamName.replacingOccurrences(of: " ", with: "%20"))&sortBy=publishedAt&language=\(preferredLanguage)&apiKey=" + API_KEY
         print(newsURL)
         let url = URL(string: newsURL)
         let request = NSMutableURLRequest(url: url!,

@@ -81,39 +81,37 @@ class MatchCell: UITableViewCell {
         
         // example data string: "Saturday, Nov 30 2019 12:30"
         let dateData = matchInfo["when"].stringValue
-        let dateWords = dateData.split(separator: " ")
-        
-        var dateString = ""
-        for word in dateWords {
-            dateString += (word + " ")
-        }
-        dateLabel.text = dateString
+        dateLabel.text = dateData
         dateLabel.font = UIFont.regularFont(size: 12)
-        
         resultLabel.font = UIFont.regularFont(size: 14)
         
-        if let currentTeam = currTeam {
-            if currentTeam == team1TitleLabel.text {
-                if team1Score.text! > team2Score.text! {
+        // Calculate the match result
+        if currTeam == team1TitleLabel.text {
+            if let score1 = Int8(team1Score.text!),
+               let score2 = Int8(team2Score.text!) {
+                if score1 > score2 {
                     resultLabel.text = "W"
                     resultLabel.textColor = .systemGreen
-                } else if team1Score.text == team2Score.text {
+                } else if score1 == score2 {
                     resultLabel.text = "D"
                     resultLabel.textColor = .systemGray
-                } else {
+                } else if score1 < score2 {
                     resultLabel.text = "L"
                     resultLabel.textColor = .systemRed
                 }
-            } else {
-                if team1Score.text! > team2Score.text! {
-                    resultLabel.text = "L"
-                    resultLabel.textColor = .systemRed
-                } else if team1Score.text == team2Score.text {
-                    resultLabel.text = "D"
-                    resultLabel.textColor = .systemGray
-                } else {
+            }
+        } else {
+            if let score1 = Int8(team1Score.text!),
+               let score2 = Int8(team2Score.text!) {
+                if score2 > score1 {
                     resultLabel.text = "W"
                     resultLabel.textColor = .systemGreen
+                } else if score1 == score2 {
+                    resultLabel.text = "D"
+                    resultLabel.textColor = .systemGray
+                } else if score2 < score1 {
+                    resultLabel.text = "L"
+                    resultLabel.textColor = .systemRed
                 }
             }
         }
@@ -136,12 +134,14 @@ class MatchCell: UITableViewCell {
         team1ImageView.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -55).isActive = true
         team1ImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         team1ImageView.widthAnchor.constraint(equalTo: team1ImageView.heightAnchor, multiplier: 1).isActive = true
+        team1ImageView.contentMode = .scaleAspectFit
         
         team2ImageView.translatesAutoresizingMaskIntoConstraints = false
         team2ImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         team2ImageView.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 55).isActive = true
         team2ImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         team2ImageView.widthAnchor.constraint(equalTo: team2ImageView.heightAnchor, multiplier: 1).isActive = true
+        team2ImageView.contentMode = .scaleAspectFit
     }
     
     func setTitleLabelConstraints() {

@@ -12,6 +12,8 @@
 		741458B624F71D0F0007D659 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 741458B524F71D0F0007D659 /* Main.storyboard */; };
 		741458BB24F8651A0007D659 /* UserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 741458B924F8651A0007D659 /* UserModel.xcdatamodeld */; };
 		741458BD24F8668C0007D659 /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741458BC24F8668C0007D659 /* UpdateProfileViewController.swift */; };
+		741D77B52557ECB5002B5A75 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D77B42557ECB5002B5A75 /* ChatViewController.swift */; };
+		741D77FA2557F601002B5A75 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741D77F92557F601002B5A75 /* MessageCell.xib */; };
 		7446BB702505FC2A00FF64D1 /* WelcomeBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7446BB6F2505FC2A00FF64D1 /* WelcomeBackViewController.swift */; };
 		744D401E24D51255007C4E4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744D401D24D51255007C4E4F /* AppDelegate.swift */; };
 		744D402024D51255007C4E4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744D401F24D51255007C4E4F /* SceneDelegate.swift */; };
@@ -30,9 +32,8 @@
 		74DF73A724D6333C001691A5 /* TeamMatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF73A624D6333C001691A5 /* TeamMatchesViewController.swift */; };
 		74F2043724EB586400A65350 /* NewsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F2043624EB586400A65350 /* NewsStruct.swift */; };
 		74F2043924EB5BCD00A65350 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F2043824EB5BCD00A65350 /* NewsCell.swift */; };
-		74F86F742544194B00E460EB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F86F732544194B00E460EB /* ChatViewController.swift */; };
 		74F86F7725441BFC00E460EB /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F86F7625441BFC00E460EB /* Message.swift */; };
-		74F86F7A25441C3D00E460EB /* CustomMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F86F7925441C3D00E460EB /* CustomMessageCell.swift */; };
+		74F86F7A25441C3D00E460EB /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F86F7925441C3D00E460EB /* MessageCell.swift */; };
 		74FBF88E24FA37640060EBF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF88D24FA37640060EBF0 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,8 @@
 		741458B524F71D0F0007D659 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		741458BA24F8651A0007D659 /* UserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserModel.xcdatamodel; sourceTree = "<group>"; };
 		741458BC24F8668C0007D659 /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
+		741D77B42557ECB5002B5A75 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = "../../../Documents/Personal Projects/MarketTalk/Flash-Chat-iOS12/Flash Chat/ChatViewController.swift"; sourceTree = "<group>"; };
+		741D77F92557F601002B5A75 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		7446BB6F2505FC2A00FF64D1 /* WelcomeBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeBackViewController.swift; sourceTree = "<group>"; };
 		744D401A24D51255007C4E4F /* Scores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		744D401D24D51255007C4E4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,9 +66,8 @@
 		74DF73A624D6333C001691A5 /* TeamMatchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMatchesViewController.swift; sourceTree = "<group>"; };
 		74F2043624EB586400A65350 /* NewsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStruct.swift; sourceTree = "<group>"; };
 		74F2043824EB5BCD00A65350 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
-		74F86F732544194B00E460EB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		74F86F7625441BFC00E460EB /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		74F86F7925441C3D00E460EB /* CustomMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMessageCell.swift; sourceTree = "<group>"; };
+		74F86F7925441C3D00E460EB /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		74FBF88D24FA37640060EBF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A3FA5DB52B41FDA456C611FE /* Pods_Scores.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scores.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -100,7 +102,7 @@
 				746A7CBD24E1109200DFD653 /* MatchDetailsViewController.swift */,
 				741458BC24F8668C0007D659 /* UpdateProfileViewController.swift */,
 				7446BB6F2505FC2A00FF64D1 /* WelcomeBackViewController.swift */,
-				74F86F732544194B00E460EB /* ChatViewController.swift */,
+				741D77B42557ECB5002B5A75 /* ChatViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -108,13 +110,15 @@
 		741458B424F71C790007D659 /* Structs + Cells */ = {
 			isa = PBXGroup;
 			children = (
+				74DF737924D51CA3001691A5 /* TeamDataModels.swift */,
 				74DF737724D51981001691A5 /* TeamCell.swift */,
 				74576EDF24D8E172006380FB /* MatchCell.swift */,
 				746A7CBF24E12A7900DFD653 /* MatchData.swift */,
 				74F2043624EB586400A65350 /* NewsStruct.swift */,
 				74F2043824EB5BCD00A65350 /* NewsCell.swift */,
 				74F86F7625441BFC00E460EB /* Message.swift */,
-				74F86F7925441C3D00E460EB /* CustomMessageCell.swift */,
+				741D77F92557F601002B5A75 /* MessageCell.xib */,
+				74F86F7925441C3D00E460EB /* MessageCell.swift */,
 			);
 			name = "Structs + Cells";
 			sourceTree = "<group>";
@@ -125,7 +129,6 @@
 				746A7CBB24D95B7E00DFD653 /* DIN-Regular.ttf */,
 				741458B924F8651A0007D659 /* UserModel.xcdatamodeld */,
 				74FBF88D24FA37640060EBF0 /* GoogleService-Info.plist */,
-				74DF737924D51CA3001691A5 /* TeamDataModels.swift */,
 				74DF73A424D62C43001691A5 /* AssetBundle.bundle */,
 				74C4C499252D478B008F5543 /* DGRunkeeperSwitch.swift */,
 			);
@@ -248,6 +251,7 @@
 				746A7CBC24D95B7E00DFD653 /* DIN-Regular.ttf in Resources */,
 				744D402D24D51257007C4E4F /* LaunchScreen.storyboard in Resources */,
 				744D402A24D51257007C4E4F /* Assets.xcassets in Resources */,
+				741D77FA2557F601002B5A75 /* MessageCell.xib in Resources */,
 				74FBF88E24FA37640060EBF0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,10 +311,11 @@
 				746A7CBE24E1109200DFD653 /* MatchDetailsViewController.swift in Sources */,
 				744D401E24D51255007C4E4F /* AppDelegate.swift in Sources */,
 				741458BB24F8651A0007D659 /* UserModel.xcdatamodeld in Sources */,
-				74F86F7A25441C3D00E460EB /* CustomMessageCell.swift in Sources */,
+				74F86F7A25441C3D00E460EB /* MessageCell.swift in Sources */,
 				7446BB702505FC2A00FF64D1 /* WelcomeBackViewController.swift in Sources */,
 				74F86F7725441BFC00E460EB /* Message.swift in Sources */,
 				74DF73A724D6333C001691A5 /* TeamMatchesViewController.swift in Sources */,
+				741D77B52557ECB5002B5A75 /* ChatViewController.swift in Sources */,
 				74DF737824D51981001691A5 /* TeamCell.swift in Sources */,
 				74DF737624D51650001691A5 /* UIView+Extensions.swift in Sources */,
 				74DF737324D514B2001691A5 /* LeagueTableViewController.swift in Sources */,
@@ -319,7 +324,6 @@
 				74C4C49A252D478B008F5543 /* DGRunkeeperSwitch.swift in Sources */,
 				741458B124F7186B0007D659 /* TeamNewsViewController.swift in Sources */,
 				74F2043924EB5BCD00A65350 /* NewsCell.swift in Sources */,
-				74F86F742544194B00E460EB /* ChatViewController.swift in Sources */,
 				74DF737A24D51CA3001691A5 /* TeamDataModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

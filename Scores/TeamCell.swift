@@ -33,7 +33,7 @@ class TeamCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func set(teamInfo: TeamRecord, position: Int) {
+    func set(teamInfo: TeamData, position: Int) {
         teamImageView.image = UIImage(named: "AssetBundle.bundle/" + teamInfo.team + ".png")
         if teamInfo.team == "Wolverhampton Wanderers" {
             teamTitleLabel.text = "Wolves"
@@ -64,6 +64,7 @@ class TeamCell: UITableViewCell {
         teamImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25).isActive = true
         teamImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
         teamImageView.widthAnchor.constraint(equalTo: teamImageView.heightAnchor, multiplier: 1).isActive = true
+        teamImageView.contentMode = .scaleAspectFit
     }
     
     func setTitleLabelConstraints() {

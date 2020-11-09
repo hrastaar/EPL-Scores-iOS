@@ -13,7 +13,7 @@ struct BasicTeamInfo {
     let teamName: String
 }
 
-struct TeamRecord: Codable {
+struct TeamData: Codable {
     let team: String
     let played: Int
     let win: Int

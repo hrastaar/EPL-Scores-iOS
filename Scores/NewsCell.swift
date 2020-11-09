@@ -58,7 +58,7 @@ class NewsCell: UITableViewCell {
     }
     
     func configureImageView(imageView: UIImageView) {
-        imageView.layer.cornerRadius = 5
+        imageView.layer.cornerRadius = 1
         imageView.clipsToBounds = true
     }
     

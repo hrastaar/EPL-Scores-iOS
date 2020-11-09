@@ -1,24 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Scores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="139" y="86"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="XS5-ZB-3zi">
+            <objects>
+                <viewController id="9bm-bh-dTF" customClass="ChatViewController" customModule="Scores" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bzv-yx-om6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="BKX-YH-tCA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R1a-js-j2b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="472" y="-587"/>
+        </scene>
+        <!--ChatroomViewController-->
+        <scene sceneID="qzE-Tp-WJT">
+            <objects>
+                <viewController storyboardIdentifier="ChatroomViewController" interfaceStyle="light" id="2Wg-y5-EuU" userLabel="ChatroomViewController" customClass="ChatViewController" customModule="Scores" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="APV-tO-tsd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yta-av-nXD">
+                                <rect key="frame" x="0.0" y="44" width="414" height="758"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbd-Jg-gy4">
+                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a message..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kGe-8b-wcp">
+                                        <rect key="frame" x="20" y="20" width="314" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="4Un-vB-tcP"/>
+                                        </constraints>
+                                        <color key="textColor" name="BrandPurple"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8g-c6-OQb">
+                                        <rect key="frame" x="354" y="20" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="JJf-xG-XFB"/>
+                                            <constraint firstAttribute="width" constant="40" id="NUS-ej-I0i"/>
+                                            <constraint firstAttribute="height" constant="40" id="WPy-xs-iru"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="q72-H8-Ol4"/>
+                                        </constraints>
+                                        <color key="tintColor" name="BrandLightPurple"/>
+                                        <state key="normal" image="paperplane.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="sendPressed:" destination="2Wg-y5-EuU" eventType="touchUpInside" id="Z85-eT-5YJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="BrandPurple"/>
+                                <constraints>
+                                    <constraint firstItem="S8g-c6-OQb" firstAttribute="leading" secondItem="kGe-8b-wcp" secondAttribute="trailing" constant="20" id="1Hw-Ds-GhL"/>
+                                    <constraint firstItem="kGe-8b-wcp" firstAttribute="leading" secondItem="cbd-Jg-gy4" secondAttribute="leading" constant="20" id="6iF-7n-Wog"/>
+                                    <constraint firstAttribute="height" constant="60" id="HTM-OV-JYp"/>
+                                    <constraint firstAttribute="trailing" secondItem="S8g-c6-OQb" secondAttribute="trailing" constant="20" id="OYK-Tg-aqd"/>
+                                    <constraint firstItem="kGe-8b-wcp" firstAttribute="top" secondItem="cbd-Jg-gy4" secondAttribute="top" constant="20" id="bov-cG-TnI"/>
+                                    <constraint firstItem="S8g-c6-OQb" firstAttribute="top" secondItem="cbd-Jg-gy4" secondAttribute="top" constant="20" id="gcx-YI-A2L"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WTQ-1w-GDG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cbd-Jg-gy4" firstAttribute="trailing" secondItem="WTQ-1w-GDG" secondAttribute="trailing" id="60x-hR-5w2"/>
+                            <constraint firstItem="cbd-Jg-gy4" firstAttribute="leading" secondItem="WTQ-1w-GDG" secondAttribute="leading" id="IAf-up-APe"/>
+                            <constraint firstItem="cbd-Jg-gy4" firstAttribute="top" secondItem="yta-av-nXD" secondAttribute="bottom" id="OMx-Dl-OUl"/>
+                            <constraint firstItem="WTQ-1w-GDG" firstAttribute="bottom" secondItem="cbd-Jg-gy4" secondAttribute="bottom" id="R8O-gf-OzH"/>
+                            <constraint firstItem="yta-av-nXD" firstAttribute="leading" secondItem="WTQ-1w-GDG" secondAttribute="leading" id="cQb-vx-IF8"/>
+                            <constraint firstItem="yta-av-nXD" firstAttribute="trailing" secondItem="WTQ-1w-GDG" secondAttribute="trailing" id="dx7-oy-1TM"/>
+                            <constraint firstItem="yta-av-nXD" firstAttribute="top" secondItem="WTQ-1w-GDG" secondAttribute="top" id="sRv-I1-hHe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="heightConstraint" destination="HTM-OV-JYp" id="61w-Pb-Fed"/>
+                        <outlet property="messageActionsView" destination="cbd-Jg-gy4" id="wBq-vh-bBy"/>
+                        <outlet property="messageTableView" destination="yta-av-nXD" id="qfU-36-san"/>
+                        <outlet property="messageTextfield" destination="kGe-8b-wcp" id="8QX-oz-7l8"/>
+                        <outlet property="sendButton" destination="S8g-c6-OQb" id="WZn-ij-PFh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WpS-Zk-L4E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2942.0289855072465" y="134.59821428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="paperplane.fill" catalog="system" width="128" height="118"/>
+        <namedColor name="BrandLightPurple">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BrandPurple">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

@@ -1,5 +1,5 @@
 //
-//  VideoListViewController.swift
+//  LeagueTableViewController.swift
 //  Scores
 //
 //  Created by Rastaar Haghi on 7/31/20.
@@ -13,8 +13,10 @@ import SwiftyJSON
 class LeagueTableViewController: UIViewController {
 
     var tableView = UITableView()
-    var teamRecords: [TeamRecord] = []
+    var teamRecords: [TeamData] = []
     var season: String = "20-21"
+    var username: String?
+    var preferredClub: String?
     
     struct Cells {
         static let teamCell = "TeamCell"
@@ -39,8 +41,11 @@ class LeagueTableViewController: UIViewController {
             if savedInfo.count > 0 {
                 let currentUser: NSManagedObject = savedInfo[savedInfo.count - 1]
                 let welcomeViewController = WelcomeBackViewController()
-                welcomeViewController.username = currentUser.value(forKey: "username") as? String
-                welcomeViewController.favoriteTeam = currentUser.value(forKey: "favoriteTeam") as? String
+                username = currentUser.value(forKey: "username") as? String
+                preferredClub = currentUser.value(forKey: "favoriteTeam") as? String
+                welcomeViewController.username = username
+                welcomeViewController.favoriteTeam = preferredClub
+                print("Username: \(String(describing: welcomeViewController.username)), Club: \(String(describing: welcomeViewController.favoriteTeam))")
                 present(welcomeViewController, animated: true, completion: nil)
             }
             
@@ -105,8 +110,10 @@ extension LeagueTableViewController: UITableViewDelegate, UITableViewDataSource 
         let chatBarItem = UITabBarItem()
         chatBarItem.title = "Chat"
         
-        let teamChatVC = ChatViewController()
+        let teamChatVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatroomViewController") as! ChatViewController
         teamChatVC.teamInfo = teamRecords[indexPath.row]
+        teamChatVC.username = username
+        teamChatVC.preferredClub = preferredClub
         teamChatVC.title = teamRecords[indexPath.row].team
         teamChatVC.tabBarItem = chatBarItem
         
@@ -120,10 +127,9 @@ extension LeagueTableViewController: UITableViewDelegate, UITableViewDataSource 
 }
 
 extension LeagueTableViewController {
-    func fetchTeamData() -> [TeamRecord] {
-        let request = NSMutableURLRequest(url: NSURL(string: "http://hrastaar.com/api/premierleague/" + self.season + "/standings")! as URL,
-                                                cachePolicy: .useProtocolCachePolicy,
-                                            timeoutInterval: 10.0)
+    func fetchTeamData() -> [TeamData] {
+        let urlString = "http://hrastaar.com/api/premierleague/" + self.season + "/standings"
+        let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = "GET"
         
         let session = URLSession.shared
@@ -137,7 +143,7 @@ extension LeagueTableViewController {
                         let jsonData = try JSON(data: data)
                         if let teams = jsonData["records"].array {
                             for team in teams {
-                                let teamRecord = TeamRecord(team: team["team"].string!, played: team["played"].int!, win: team["win"].int!, draw: team["draw"].int!, loss: team["loss"].int!, goalsFor: team["goalsFor"].int!, goalsAgainst: team["goalsAgainst"].int!, points: team["points"].int!)
+                                let teamRecord = TeamData(team: team["team"].string!, played: team["played"].int!, win: team["win"].int!, draw: team["draw"].int!, loss: team["loss"].int!, goalsFor: team["goalsFor"].int!, goalsAgainst: team["goalsAgainst"].int!, points: team["points"].int!)
                                 self.teamRecords.append(teamRecord)
                                 DispatchQueue.main.async {
                                     self.tableView.reloadData()
