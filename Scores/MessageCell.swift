@@ -16,7 +16,7 @@ class MessageCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        messageBackground.layer.cornerRadius = 2
+        messageBackground.layer.cornerRadius = 15
         avatarImageView.backgroundColor = .clear
     }
 }
