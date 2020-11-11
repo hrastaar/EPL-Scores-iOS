@@ -18,12 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yta-av-nXD">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yta-av-nXD">
                                 <rect key="frame" x="0.0" y="44" width="414" height="758"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbd-Jg-gy4">
-                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="745" width="414" height="117"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a message..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kGe-8b-wcp">
                                         <rect key="frame" x="20" y="20" width="314" height="40"/>
@@ -42,7 +42,7 @@
                                             <constraint firstAttribute="height" constant="40" id="WPy-xs-iru"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="q72-H8-Ol4"/>
                                         </constraints>
-                                        <color key="tintColor" name="BrandLightPurple"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="paperplane.fill" catalog="system"/>
                                         <connections>
                                             <action selector="sendPressed:" destination="2Wg-y5-EuU" eventType="touchUpInside" id="Z85-eT-5YJ"/>
@@ -53,7 +53,7 @@
                                 <constraints>
                                     <constraint firstItem="S8g-c6-OQb" firstAttribute="leading" secondItem="kGe-8b-wcp" secondAttribute="trailing" constant="20" id="1Hw-Ds-GhL"/>
                                     <constraint firstItem="kGe-8b-wcp" firstAttribute="leading" secondItem="cbd-Jg-gy4" secondAttribute="leading" constant="20" id="6iF-7n-Wog"/>
-                                    <constraint firstAttribute="height" constant="60" id="HTM-OV-JYp"/>
+                                    <constraint firstAttribute="height" constant="117" id="HTM-OV-JYp"/>
                                     <constraint firstAttribute="trailing" secondItem="S8g-c6-OQb" secondAttribute="trailing" constant="20" id="OYK-Tg-aqd"/>
                                     <constraint firstItem="kGe-8b-wcp" firstAttribute="top" secondItem="cbd-Jg-gy4" secondAttribute="top" constant="20" id="bov-cG-TnI"/>
                                     <constraint firstItem="S8g-c6-OQb" firstAttribute="top" secondItem="cbd-Jg-gy4" secondAttribute="top" constant="20" id="gcx-YI-A2L"/>
@@ -65,7 +65,7 @@
                         <constraints>
                             <constraint firstItem="cbd-Jg-gy4" firstAttribute="trailing" secondItem="WTQ-1w-GDG" secondAttribute="trailing" id="60x-hR-5w2"/>
                             <constraint firstItem="cbd-Jg-gy4" firstAttribute="leading" secondItem="WTQ-1w-GDG" secondAttribute="leading" id="IAf-up-APe"/>
-                            <constraint firstItem="cbd-Jg-gy4" firstAttribute="top" secondItem="yta-av-nXD" secondAttribute="bottom" id="OMx-Dl-OUl"/>
+                            <constraint firstItem="cbd-Jg-gy4" firstAttribute="top" secondItem="yta-av-nXD" secondAttribute="bottom" constant="-57" id="OMx-Dl-OUl"/>
                             <constraint firstItem="WTQ-1w-GDG" firstAttribute="bottom" secondItem="cbd-Jg-gy4" secondAttribute="bottom" id="R8O-gf-OzH"/>
                             <constraint firstItem="yta-av-nXD" firstAttribute="leading" secondItem="WTQ-1w-GDG" secondAttribute="leading" id="cQb-vx-IF8"/>
                             <constraint firstItem="yta-av-nXD" firstAttribute="trailing" secondItem="WTQ-1w-GDG" secondAttribute="trailing" id="dx7-oy-1TM"/>
@@ -82,14 +82,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WpS-Zk-L4E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-28" y="-362"/>
+            <point key="canvasLocation" x="-28.985507246376812" y="-362.27678571428572"/>
         </scene>
     </scenes>
     <resources>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
-        <namedColor name="BrandLightPurple">
-            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="BrandPurple">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

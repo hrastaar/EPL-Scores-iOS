@@ -19,10 +19,11 @@ class UpdateProfileViewController: UIViewController, UIPickerViewDataSource, UIP
     var favTeamTextField: TextFieldWithPadding!
     
     let favTeamPicker = UIPickerView()
-    
     var submitButton: UIButton!
     var selectedTeam = "Select your Favorite Team"
     var currUser: NSManagedObject?
+    
+    var leagueTableViewController: LeagueTableViewController?
     
     struct User {
         var username: String
@@ -64,6 +65,7 @@ class UpdateProfileViewController: UIViewController, UIPickerViewDataSource, UIP
     @objc
     func createUser() {
         let username = self.usernameTextField.text!, favTeam = self.selectedTeam
+        // Case 1: username too short
         if username.count < 5 {
             let alertController = UIAlertController(title: "Error!", message: "Please make sure that your username is greater than 5 characters long.", preferredStyle: .actionSheet)
             let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
@@ -75,36 +77,36 @@ class UpdateProfileViewController: UIViewController, UIPickerViewDataSource, UIP
             alertController.addAction(dismissAction)
             present(alertController, animated: true, completion: nil)
         } else {
-            print("Creating a user with username \(username) and favorite team \(favTeam)")
-            
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                return
-            }
-            let managedContext = appDelegate.persistentContainer.viewContext
-            guard let entity = NSEntityDescription.entity(forEntityName: "User", in: managedContext) else {
-                return
-            }
-            let user = NSManagedObject(entity: entity, insertInto: managedContext)
-            user.setValue(username, forKeyPath: "username")
-            user.setValue(favTeam, forKeyPath: "favoriteTeam")
-            
-            do {
-                try managedContext.save()
-                print("Updating Profile: username is now \(username), and favorite team is now \(favTeam)")
-                let alertController = UIAlertController(title: "Saved Profile!", message: "Your username has been updated to \(username), and your favorite team is now \(favTeam)", preferredStyle: .actionSheet)
-                let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
-                alertController.addAction(dismissAction)
-                present(alertController, animated: true, completion: nil)
-            } catch let error as NSError {
-                print("Could not save.\(error), \(error.userInfo)")
-            }
-            
-            if let navController = self.navigationController {
-                navController.popViewController(animated: true)
-            }
+            updateProfile(username: username, club: favTeam)
         }
     }
-
+    
+    // Update username and club with core data
+    func updateProfile(username: String, club: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        guard let entity = NSEntityDescription.entity(forEntityName: "User", in: managedContext) else {
+            return
+        }
+        let user = NSManagedObject(entity: entity, insertInto: managedContext)
+        user.setValue(username, forKeyPath: "username")
+        user.setValue(club, forKeyPath: "favoriteTeam")
+        
+        do {
+            try managedContext.save()
+            let alertController = UIAlertController(title: "Saved Profile!", message: "Your username has been updated to \(username), and your favorite team is now \(club)", preferredStyle: .actionSheet)
+            let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+            alertController.addAction(dismissAction)
+            present(alertController, animated: true) {
+                self.leagueTableViewController?.username = username
+                self.leagueTableViewController?.preferredClub = club
+            }
+        } catch let error as NSError {
+            print("Could not save.\(error), \(error.userInfo)")
+        }
+    }
 
 }
 
@@ -156,7 +158,7 @@ extension UpdateProfileViewController {
     
 }
 
-// UI Element initializers
+// UI Implementations
 extension UpdateProfileViewController {
     
     func customizedTextFieldWithPadding(yPos: CGFloat) -> TextFieldWithPadding {

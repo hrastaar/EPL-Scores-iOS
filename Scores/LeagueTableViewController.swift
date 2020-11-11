@@ -15,6 +15,7 @@ class LeagueTableViewController: UIViewController {
     var tableView = UITableView()
     var teamRecords: [TeamData] = []
     var season: String = "20-21"
+    
     var username: String?
     var preferredClub: String?
     
@@ -29,32 +30,12 @@ class LeagueTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let appDelegate =
-                UIApplication.shared.delegate as? AppDelegate else {
-                return
-        }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest =
-            NSFetchRequest<NSManagedObject>(entityName: "User")
-        do {
-            let savedInfo = try managedContext.fetch(fetchRequest)
-            if savedInfo.count > 0 {
-                let currentUser: NSManagedObject = savedInfo[savedInfo.count - 1]
-                let welcomeViewController = WelcomeBackViewController()
-                username = currentUser.value(forKey: "username") as? String
-                preferredClub = currentUser.value(forKey: "favoriteTeam") as? String
-                welcomeViewController.username = username
-                welcomeViewController.favoriteTeam = preferredClub
-                print("Username: \(String(describing: welcomeViewController.username)), Club: \(String(describing: welcomeViewController.favoriteTeam))")
-                present(welcomeViewController, animated: true, completion: nil)
-            }
-            
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
+        self.username = fetchUsername()
+        self.preferredClub = fetchPreferredTeam()
         
-        title = "League Table"
+        self.title = "League Table"
         configureTableView()
+        
         teamRecords = fetchTeamData()
     }
     
@@ -112,8 +93,6 @@ extension LeagueTableViewController: UITableViewDelegate, UITableViewDataSource 
         
         let teamChatVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatroomViewController") as! ChatViewController
         teamChatVC.teamInfo = teamRecords[indexPath.row]
-        teamChatVC.username = username
-        teamChatVC.preferredClub = preferredClub
         teamChatVC.title = teamRecords[indexPath.row].team
         teamChatVC.tabBarItem = chatBarItem
         
@@ -162,8 +141,3 @@ extension LeagueTableViewController {
     }
 }
 
-extension UIFont {
-    class func regularFont( size:CGFloat ) -> UIFont{
-        return  UIFont(name: "D-DIN", size: size)!
-    }
-}

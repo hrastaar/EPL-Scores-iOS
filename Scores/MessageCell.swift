@@ -13,10 +13,9 @@ class MessageCell: UITableViewCell {
     @IBOutlet var avatarImageView: UIImageView!
     @IBOutlet var messageBody: UILabel!
     @IBOutlet var messageBackground: UIView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         messageBackground.layer.cornerRadius = 15
-        avatarImageView.backgroundColor = .clear
+        avatarImageView.backgroundColor = .white
     }
 }

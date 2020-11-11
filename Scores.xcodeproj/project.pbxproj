@@ -13,7 +13,7 @@
 		741458BB24F8651A0007D659 /* UserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 741458B924F8651A0007D659 /* UserModel.xcdatamodeld */; };
 		741458BD24F8668C0007D659 /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741458BC24F8668C0007D659 /* UpdateProfileViewController.swift */; };
 		741D77B52557ECB5002B5A75 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D77B42557ECB5002B5A75 /* ChatViewController.swift */; };
-		741D77FA2557F601002B5A75 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741D77F92557F601002B5A75 /* MessageCell.xib */; };
+		742C148F255BA78A0070D0DC /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742C148E255BA78A0070D0DC /* MessageCell.xib */; };
 		7446BB702505FC2A00FF64D1 /* WelcomeBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7446BB6F2505FC2A00FF64D1 /* WelcomeBackViewController.swift */; };
 		744D401E24D51255007C4E4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744D401D24D51255007C4E4F /* AppDelegate.swift */; };
 		744D402024D51255007C4E4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744D401F24D51255007C4E4F /* SceneDelegate.swift */; };
@@ -45,7 +45,7 @@
 		741458BA24F8651A0007D659 /* UserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserModel.xcdatamodel; sourceTree = "<group>"; };
 		741458BC24F8668C0007D659 /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
 		741D77B42557ECB5002B5A75 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = "../../../Documents/Personal Projects/MarketTalk/Flash-Chat-iOS12/Flash Chat/ChatViewController.swift"; sourceTree = "<group>"; };
-		741D77F92557F601002B5A75 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		742C148E255BA78A0070D0DC /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessageCell.xib; path = ../../MessageCell.xib; sourceTree = "<group>"; };
 		7446BB6F2505FC2A00FF64D1 /* WelcomeBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeBackViewController.swift; sourceTree = "<group>"; };
 		744D401A24D51255007C4E4F /* Scores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		744D401D24D51255007C4E4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 				74F2043624EB586400A65350 /* NewsStruct.swift */,
 				74F2043824EB5BCD00A65350 /* NewsCell.swift */,
 				74F86F7625441BFC00E460EB /* Message.swift */,
-				741D77F92557F601002B5A75 /* MessageCell.xib */,
+				742C148E255BA78A0070D0DC /* MessageCell.xib */,
 				74F86F7925441C3D00E460EB /* MessageCell.swift */,
 			);
 			name = "Structs + Cells";
@@ -251,7 +251,7 @@
 				746A7CBC24D95B7E00DFD653 /* DIN-Regular.ttf in Resources */,
 				744D402D24D51257007C4E4F /* LaunchScreen.storyboard in Resources */,
 				744D402A24D51257007C4E4F /* Assets.xcassets in Resources */,
-				741D77FA2557F601002B5A75 /* MessageCell.xib in Resources */,
+				742C148F255BA78A0070D0DC /* MessageCell.xib in Resources */,
 				74FBF88E24FA37640060EBF0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 struct BasicTeamInfo {
     let teamCrest: UIImage
@@ -69,3 +70,43 @@ let teamNames = ["Bournemouth", "Arsenal", "Brighton", "Burnley", "Chelsea", "Cr
              "Manchester United", "Newcastle United", "Southampton", "Stoke City", "Swansea City",
              "Tottenham", "Watford", "West Bromwich Albion", "West Ham", "Wolverhampton Wanderers",
     "Aston Villa", "Norwich", "Sheffield United", "Fulham", "Leeds"].sorted()
+
+// Helper functions to gather Core Data elements
+func fetchUsername() -> String? {
+    guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+            return nil
+    }
+    let managedContext = appDelegate.persistentContainer.viewContext
+    let fetchRequest =
+        NSFetchRequest<NSManagedObject>(entityName: "User")
+    do {
+        let savedInfo = try managedContext.fetch(fetchRequest)
+        if savedInfo.count > 0 {
+            let currentUser: NSManagedObject = savedInfo[savedInfo.count - 1]
+            return currentUser.value(forKey: "username") as? String
+        }
+    } catch let error as NSError {
+        print("Could not fetch. \(error), \(error.userInfo)")
+    }
+    return nil
+}
+
+func fetchPreferredTeam() -> String? {
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return nil
+    }
+    let managedContext = appDelegate.persistentContainer.viewContext
+    let fetchRequest =
+        NSFetchRequest<NSManagedObject>(entityName: "User")
+    do {
+        let savedInfo = try managedContext.fetch(fetchRequest)
+        if savedInfo.count > 0 {
+            let currentUser: NSManagedObject = savedInfo[savedInfo.count - 1]
+            return currentUser.value(forKey: "favoriteTeam") as? String
+        }
+    } catch let error as NSError {
+        print("Could not fetch. \(error), \(error.userInfo)")
+    }
+    return nil
+}
