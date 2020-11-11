@@ -140,11 +140,4 @@ extension TeamMatchesViewController {
         })
         dataTask.resume()
     }
-    
-}
-
-extension UIToolbar {
-    func setBackgroundColor(image: UIImage) {
-        setBackgroundImage(image, forToolbarPosition: .any, barMetrics: .default)
-    }
 }

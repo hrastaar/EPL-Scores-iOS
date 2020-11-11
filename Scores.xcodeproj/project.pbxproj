@@ -21,7 +21,6 @@
 		744D402D24D51257007C4E4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 744D402B24D51257007C4E4F /* LaunchScreen.storyboard */; };
 		74576EE024D8E172006380FB /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74576EDF24D8E172006380FB /* MatchCell.swift */; };
 		746A7CBC24D95B7E00DFD653 /* DIN-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 746A7CBB24D95B7E00DFD653 /* DIN-Regular.ttf */; };
-		746A7CBE24E1109200DFD653 /* MatchDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A7CBD24E1109200DFD653 /* MatchDetailsViewController.swift */; };
 		746A7CC024E12A7900DFD653 /* MatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A7CBF24E12A7900DFD653 /* MatchData.swift */; };
 		74C4C49A252D478B008F5543 /* DGRunkeeperSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C4C499252D478B008F5543 /* DGRunkeeperSwitch.swift */; };
 		74DF737324D514B2001691A5 /* LeagueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF737224D514B2001691A5 /* LeagueTableViewController.swift */; };
@@ -55,7 +54,6 @@
 		744D402E24D51257007C4E4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74576EDF24D8E172006380FB /* MatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCell.swift; sourceTree = "<group>"; };
 		746A7CBB24D95B7E00DFD653 /* DIN-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Regular.ttf"; sourceTree = "<group>"; };
-		746A7CBD24E1109200DFD653 /* MatchDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailsViewController.swift; sourceTree = "<group>"; };
 		746A7CBF24E12A7900DFD653 /* MatchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchData.swift; sourceTree = "<group>"; };
 		74C4C499252D478B008F5543 /* DGRunkeeperSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGRunkeeperSwitch.swift; sourceTree = "<group>"; };
 		74DF737224D514B2001691A5 /* LeagueTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueTableViewController.swift; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 				74DF737224D514B2001691A5 /* LeagueTableViewController.swift */,
 				741458B024F7186B0007D659 /* TeamNewsViewController.swift */,
 				74DF73A624D6333C001691A5 /* TeamMatchesViewController.swift */,
-				746A7CBD24E1109200DFD653 /* MatchDetailsViewController.swift */,
 				741458BC24F8668C0007D659 /* UpdateProfileViewController.swift */,
 				7446BB6F2505FC2A00FF64D1 /* WelcomeBackViewController.swift */,
 				741D77B42557ECB5002B5A75 /* ChatViewController.swift */,
@@ -308,7 +305,6 @@
 				74576EE024D8E172006380FB /* MatchCell.swift in Sources */,
 				74F2043724EB586400A65350 /* NewsStruct.swift in Sources */,
 				746A7CC024E12A7900DFD653 /* MatchData.swift in Sources */,
-				746A7CBE24E1109200DFD653 /* MatchDetailsViewController.swift in Sources */,
 				744D401E24D51255007C4E4F /* AppDelegate.swift in Sources */,
 				741458BB24F8651A0007D659 /* UserModel.xcdatamodeld in Sources */,
 				74F86F7A25441C3D00E460EB /* MessageCell.swift in Sources */,
@@ -462,7 +458,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 2SDN5A8D5U;
 				INFOPLIST_FILE = Scores/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -470,11 +466,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Rastaar.Scores;
 				PRODUCT_NAME = Scores;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -484,7 +480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 2SDN5A8D5U;
 				INFOPLIST_FILE = Scores/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -492,11 +488,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Rastaar.Scores;
 				PRODUCT_NAME = Scores;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

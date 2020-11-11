@@ -6,7 +6,6 @@ target 'Scores' do
   # Pods for Scores
   pod 'SwiftyJSON'
   pod 'Hex'
-  pod 'liquid-swipe'
   pod 'LBConfettiView'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'

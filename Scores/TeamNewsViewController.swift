@@ -16,11 +16,7 @@ class TeamNewsViewController: UIViewController, SFSafariViewControllerDelegate {
     var teamInfo: TeamData?
     var tableView = UITableView()
     var newsArticles: [News] = []
-    
-    struct Cells {
-        static let newsCell = "NewsCell"
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = teamInfo!.team
@@ -45,7 +41,7 @@ class TeamNewsViewController: UIViewController, SFSafariViewControllerDelegate {
         view.addSubview(tableView)
         setTableViewDelegates()
         tableView.rowHeight = 125
-        tableView.register(NewsCell.self, forCellReuseIdentifier: Cells.newsCell)
+        tableView.register(NewsCell.self, forCellReuseIdentifier: "NewsCell")
         tableView.pin(to: view)
     }
     
@@ -61,7 +57,7 @@ extension TeamNewsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.newsCell) as! NewsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
         let article = newsArticles[indexPath.row]
         cell.set(newsArticle: article)
         return cell
@@ -82,10 +78,9 @@ extension TeamNewsViewController {
     func gatherTeamNews(teamName: String) {
         let API_KEY = "0472e96928694078ad0d3c39a540341f"
         let preferredLanguage = NSLocale.preferredLanguages.first ?? "en"
-        let newsURL =  "http://newsapi.org/v2/everything?qInTitle=fc%20\(teamName.replacingOccurrences(of: " ", with: "%20"))&sortBy=publishedAt&language=\(preferredLanguage)&apiKey=" + API_KEY
-        print(newsURL)
-        let url = URL(string: newsURL)
-        let request = NSMutableURLRequest(url: url!,
+        let newsURLString =  "http://newsapi.org/v2/everything?qInTitle=fc%20\(teamName.replacingOccurrences(of: " ", with: "%20"))&sortBy=publishedAt&language=\(preferredLanguage)&apiKey=" + API_KEY
+        let newsURL = URL(string: newsURLString)
+        let request = NSMutableURLRequest(url: newsURL!,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
         request.httpMethod = "GET"

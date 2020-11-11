@@ -19,9 +19,7 @@ class NewsCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         addSubview(articleImageView)
-        
         addSubview(articleTitle)
-        
         addSubview(authorLabel)
         addSubview(dateLabel)
         

@@ -8,17 +8,6 @@
 
 import UIKit
 
-extension UIView {
-    
-    func pin(to superView: UIView) {
-        translatesAutoresizingMaskIntoConstraints = false
-        topAnchor.constraint(equalTo: superView.topAnchor).isActive = true
-        leadingAnchor.constraint(equalTo: superView.leadingAnchor).isActive = true
-        trailingAnchor.constraint(equalTo: superView.trailingAnchor).isActive = true
-        bottomAnchor.constraint(equalTo: superView.bottomAnchor).isActive = true
-    }
-}
-
 class TextFieldWithPadding: UITextField {
     var textPadding = UIEdgeInsets(
         top: 0,
@@ -46,5 +35,21 @@ extension UIColor
         self.getRed(&r, green: &g, blue: &b, alpha: &a)
         let lum = 0.2126 * r + 0.7152 * g + 0.0722 * b
         return  lum < 0.50
+    }
+}
+
+extension UIView {
+    func pin(to superView: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
+        topAnchor.constraint(equalTo: superView.topAnchor).isActive = true
+        leadingAnchor.constraint(equalTo: superView.leadingAnchor).isActive = true
+        trailingAnchor.constraint(equalTo: superView.trailingAnchor).isActive = true
+        bottomAnchor.constraint(equalTo: superView.bottomAnchor).isActive = true
+    }
+}
+
+extension UIToolbar {
+    func setBackgroundColor(image: UIImage) {
+        setBackgroundImage(image, forToolbarPosition: .any, barMetrics: .default)
     }
 }

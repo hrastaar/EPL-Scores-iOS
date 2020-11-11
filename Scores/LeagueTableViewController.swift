@@ -14,14 +14,10 @@ class LeagueTableViewController: UIViewController {
 
     var tableView = UITableView()
     var teamRecords: [TeamData] = []
-    var season: String = "20-21"
+    let currentSeason = "20-21"
     
     var username: String?
     var preferredClub: String?
-    
-    struct Cells {
-        static let teamCell = "TeamCell"
-    }
     
     override func viewDidAppear(_ animated: Bool) {
         // present the appropriate tab bar when this view is on top
@@ -43,7 +39,7 @@ class LeagueTableViewController: UIViewController {
         view.addSubview(tableView)
         setTableViewDelegates()
         tableView.rowHeight = 100
-        tableView.register(TeamCell.self, forCellReuseIdentifier: Cells.teamCell)
+        tableView.register(TeamCell.self, forCellReuseIdentifier: "TeamCell")
         tableView.pin(to: view)
     }
     
@@ -60,7 +56,7 @@ extension LeagueTableViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.teamCell) as! TeamCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TeamCell") as! TeamCell
         let team = teamRecords[indexPath.row]
         cell.set(teamInfo: team, position: indexPath.row + 1)
         
@@ -73,7 +69,7 @@ extension LeagueTableViewController: UITableViewDelegate, UITableViewDataSource 
         
         // Match View Controller
         let teamMatchesVC = TeamMatchesViewController()
-        teamMatchesVC.season = self.season
+        teamMatchesVC.season = self.currentSeason
         teamMatchesVC.teamInfo = teamRecords[indexPath.row]
         teamMatchesVC.title = teamRecords[indexPath.row].team
         teamMatchesVC.tabBarItem = teamMatchBarItem
@@ -107,7 +103,7 @@ extension LeagueTableViewController: UITableViewDelegate, UITableViewDataSource 
 
 extension LeagueTableViewController {
     func fetchTeamData() -> [TeamData] {
-        let urlString = "http://hrastaar.com/api/premierleague/" + self.season + "/standings"
+        let urlString = "http://hrastaar.com/api/premierleague/" + self.currentSeason + "/standings"
         let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = "GET"
         
